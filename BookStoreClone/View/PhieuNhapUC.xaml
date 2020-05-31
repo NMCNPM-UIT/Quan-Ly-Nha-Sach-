@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="BookStoreClone.View.PhieuNhapUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BookStoreClone.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="730" d:DesignWidth="1200"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <materialDesign:Card Margin="10" Grid.Row="0">
+                <Label  HorizontalAlignment="Center" FontSize="40" FontFamily="Bold" Margin="0,20,0,0" >Phiếu Nhập Sách</Label>
+            </materialDesign:Card>
+            <materialDesign:Card Grid.Row="1" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="tbMaPT" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Mã Phiếu Thu"  Margin="30,4" IsEnabled="False" />
+                    <TextBox x:Name="tbTienNo" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Số Tiền Nợ"  Margin="30,4" IsEnabled="False" />
+                    <ComboBox x:Name="cbKhachHang" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="30,4"
+                          materialDesign:HintAssist.Hint="Chọn Khách Hàng" IsEnabled="False"/>
+                    <TextBox x:Name="tbTienThu" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="30,4"
+                          materialDesign:HintAssist.Hint="Số Tiền Thu" IsEnabled="False"/>
+                    <DatePicker x:Name="dpNgayLap" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="30,4"
+                          materialDesign:HintAssist.Hint="Ngày Lập Phiếu" IsEnabled="False"/>
+                </Grid>
+
+            </materialDesign:Card>
+            <materialDesign:Card Grid.Row="2" Margin="5">
+                <WrapPanel>
+                    <Button Content="Thêm" Margin="200,5,5,5" Width="100" />
+                    <Button Content="Sửa" Margin="200,5,5,5" Width="100" />
+                    <Button Content="Lưu" Margin="200,5,5,5" Width="100" />
+                </WrapPanel>
+            </materialDesign:Card>
+            <materialDesign:Card Grid.Row="3" Margin="10" VerticalAlignment="Stretch">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Mã PT"></GridViewColumn>
+                                <GridViewColumn Header="Tên KH"></GridViewColumn>
+                                <GridViewColumn Header="Số Tiền Thu"></GridViewColumn>
+                                <GridViewColumn Header="Số Tiền Nợ"></GridViewColumn>
+                                <GridViewColumn Header="Ngày Lập Phiếu"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</UserControl>

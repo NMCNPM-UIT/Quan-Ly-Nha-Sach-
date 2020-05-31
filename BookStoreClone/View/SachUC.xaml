@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="BookStoreClone.View.SachUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BookStoreClone.View"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"            
+            
+             d:DesignHeight="320" d:DesignWidth="200">
+    <Grid>
+        <Button
+            Height="auto"
+            Width="auto" 
+            Margin="10"
+            Background="Transparent"
+            >
+            <Canvas DockPanel.Dock="Bottom" Height="auto" Background="Yellow" >
+                <Image 
+            Height="221"
+            Width="168"
+            Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Source="D:\Document\Coding\C#\WPF\BookStoreClone\BookStoreClone\Resources\img//1.jpg" Canvas.Left="-84" Canvas.Top="-140"/>
+                <TextBlock x:Name="tbTenSach"
+                           Text="Tên sách" 
+                           HorizontalAlignment="Left" VerticalAlignment="Top"  Foreground="Black" Canvas.Left="-84" Canvas.Top="86"/>
+                <TextBlock Text="1000000đ" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="75" FontSize="12"  Foreground="Black" Canvas.Left="-72" Canvas.Top="108"/>
+                <TextBlock x:Name="txbSoLuongDaBan" Text="Đã bán: 120" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" FontSize="12" Foreground="Black" Canvas.Top="127" Canvas.Left="9"/>
+            </Canvas>
+        </Button>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="BookStoreClone.View.Menu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BookStoreClone.View"
+             mc:Ignorable="d" 
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="930" d:DesignWidth="300">
+    <!--Custom Togglebutton-->
+    <!--Custom Expander-->
+    <StackPanel >
+        <ListBox Background="{x:Null}" Foreground="#FF6CE3FB" FontWeight="Bold" Height="920" FontSize="25">
+            <!--<ListBox.Resources>
+                <Style TargetType="Expander">
+                    <Setter Property="IsExpanded" Value="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}}"/>
+                    <Setter Property="BorderThickness" Value="0" />
+                    <Setter Property="Background" Value="#00FFFFFF"/>
+                    <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}, Path=(TextElement.Foreground)}"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="VerticalContentAlignment" Value="Top"/>
+                    <Setter Property="Template">
+                </Style>
+            </ListBox.Resources>-->
+            <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="BookOpenVariant" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
+                <Expander Header="Quản lý">
+                    <StackPanel Margin="20,0,0,0">
+                        <Button Content="Sách" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF6CE3FB"/>
+                        <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                        <Button Content="Dữ liệu sách" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF6CE3FB" />
+                        <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                        <Button Content="Khách Hàng" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF6CE3FB" />
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="CashUsd" Width="20" Height="20" Foreground="Green" Margin="5" VerticalAlignment="Center"/>
+                <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                <Expander Header="Kinh Doanh">
+                    <StackPanel Margin="20,0,0,0">
+                        <Button Content="Nhập Sách" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF6CE3FB" />
+                        <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                        <Button Content="Bán Sách" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF6CE3FB" />
+                        <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                        <Button Content="Thu Tiền" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF6CE3FB" />
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Magnify" Width="20" Height="20" Foreground="#FFD41515" Margin="5" VerticalAlignment="Center"/>
+                <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                <Expander Header="Tìm kiếm">
+                    <StackPanel Margin="20,0,0,0">
+                        <Button Content="Tìm kiếm Sách" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF6CE3FB" />
+                        <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                        <Button Content="Tìm kiếm khách hàng" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF6CE3FB" />
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="FileChart" Width="20" Height="20" Foreground="#FFE6A701" Margin="5" VerticalAlignment="Center"/>
+                <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                <Expander Header="Báo cáo">
+                    <StackPanel Margin="20,0,0,0">
+                        <Button Content="Báo cáo tồn" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF6CE3FB" />
+                        <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                        <Button Content="Báo cáo nợ" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF6CE3FB" />
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Settings" Width="20" Height="20" Foreground="#FF0069C1" Margin="5" VerticalAlignment="Center"/>
+                <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                <Expander Header="Tùy chỉnh">
+                    <StackPanel Margin="20,0,0,0">
+                        <Button Content="Thay đổi quyết định" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF6CE3FB"/>
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+           
+            <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+        </ListBox>
+        
+    </StackPanel>
+</UserControl>
