@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace BookStoreClone.ViewModel
 {
-    class TimKiemSachViewModel : BaseViewModel
+    class TimKiemSachViewModel:BaseViewModel
     {
         #region commands
         public ICommand AnSachCommand { get; set; }
@@ -20,7 +20,7 @@ namespace BookStoreClone.ViewModel
         {
             AnSachCommand = new RelayCommand<Card>((p) => { return p == null ? false : true; }, (p) =>
             {
-
+              
                 (p as Card).Visibility = Visibility.Collapsed;
             }
             );

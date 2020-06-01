@@ -20,6 +20,7 @@ namespace BookStoreClone.View
     /// </summary>
     public partial class TimKiemSachUC : UserControl
     {
+
         List<SachUC> listSach = new List<SachUC>();
         public TimKiemSachUC()
         {
@@ -42,6 +43,7 @@ namespace BookStoreClone.View
             for (int i=n*25;i<(n+1)*25;i++)
             {
                 SachUC sachUC = new SachUC(i.ToString());
+                
                 sachUC.Height = 320;
                 sachUC.Width = 200;
                 listSach.Add(sachUC);
