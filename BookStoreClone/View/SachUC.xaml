@@ -11,7 +11,7 @@
              TextElement.FontSize="13"
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
-             
+             DataContext="{StaticResource SachVM}"  
              Background="{DynamicResource MaterialDesignPaper}"
              FontFamily="{DynamicResource MaterialDesignFont}"            
             
@@ -22,12 +22,14 @@
             Width="auto" 
             Margin="10"
             Background="Transparent"
+            Command="{Binding HienThoThongTinSachCommand}" 
+                            CommandParameter="{Binding ElementName=tbTenSach}"
             >
             <Canvas DockPanel.Dock="Bottom" Height="auto" Background="Yellow" >
                 <Image 
-            Height="221"
-            Width="168"
-            Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Source="D:\Document\Coding\C#\WPF\BookStoreClone\BookStoreClone\Resources\img//1.jpg" Canvas.Left="-84" Canvas.Top="-140"/>
+                    Height="215"
+                    Width="165"
+                    Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="-165" Canvas.Top="-251" />
                 <TextBlock x:Name="tbTenSach"
                            Text="Tên sách" 
                            HorizontalAlignment="Left" VerticalAlignment="Top"  Foreground="Black" Canvas.Left="-84" Canvas.Top="86"/>

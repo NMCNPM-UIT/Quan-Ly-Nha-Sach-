@@ -5,22 +5,28 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BookStoreClone.View" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
+             DataContext="{StaticResource TimKiemVM}"   
+             
+             x:Name="timKiemSachUC"
              d:DesignHeight="800" d:DesignWidth="1200">
+    
     <DockPanel>
 
-        <materialDesign:Card DockPanel.Dock="Right" Width="426" >
+        <materialDesign:Card DockPanel.Dock="Right" Width="426" x:Name="pnlThongTinSach" >
             <StackPanel>
                 <Canvas  Height="500">
-                    
-                    <Image Height="345" Width="350" Canvas.Left="42" Canvas.Top="10" Source="D:\Document\Coding\C#\WPF\BookStoreClone\BookStoreClone\Resources\img//1.jpg"></Image>
-                    <TextBlock Foreground="Black" FontSize="25"   RenderTransformOrigin="0.739,-0.722" Canvas.Left="42" Canvas.Top="381">Ten</TextBlock>
+
+                    <Image Height="345" Width="350" Canvas.Left="42" Canvas.Top="10"></Image>
+                    <TextBlock Foreground="Black" FontSize="25" RenderTransformOrigin="0.739,-0.722" Canvas.Left="42" Canvas.Top="381">Ten</TextBlock>
                     <TextBlock Foreground="Black" FontSize="17" Canvas.Left="309" Canvas.Top="467" >Kho: 200 cuốn</TextBlock>
                     <TextBlock Foreground="Black" FontSize="25" Canvas.Left="152" Canvas.Top="430" RenderTransformOrigin="0.365,1.083" >80000đ</TextBlock>
-                    <Button x:Name="btnDong"
-                            
-                        Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
-                        ToolTip="MaterialDesignFloatingActionMiniLightButton" Canvas.Left="10" Canvas.Top="10" RenderTransformOrigin="1.15,0.6">
+                    <Button Command="{Binding AnSachCommand}" 
+                            CommandParameter="{Binding ElementName=pnlThongTinSach}"
+                            ToolBar.OverflowMode="AsNeeded"
+                            Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                            ToolTip="MaterialDesignFloatingActionMiniLightButton" Canvas.Left="10" Canvas.Top="10" RenderTransformOrigin="1.15,0.6">
                         <materialDesign:PackIcon
                             Kind="Close"
                             Height="24"
@@ -58,10 +64,6 @@
 
             </StackPanel>
         </materialDesign:Card>
-
-
-
-
         <DockPanel>
             <!--Tìm Kiếm-->
             <DockPanel
@@ -154,18 +156,17 @@
                 </StackPanel>
             </DockPanel>
 
-            <materialDesign:Card Margin="0,0,5,0">
-
-
-
-
+            
+            <materialDesign:Card Margin="0,0,5,0" DockPanel.Dock="Top">
                 <ScrollViewer>
                     <WrapPanel x:Name="pnlHienThiSach" HorizontalAlignment="Center"></WrapPanel>
                 </ScrollViewer>
 
             </materialDesign:Card>
 
+           
 
         </DockPanel>
+        
     </DockPanel>
 </UserControl>

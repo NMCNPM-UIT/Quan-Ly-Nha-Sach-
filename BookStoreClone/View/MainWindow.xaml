@@ -9,66 +9,75 @@
         mc:Ignorable="d"
         Title="MainWindow"
         WindowStyle="None"
-        
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        DataContext="{StaticResource MainVM}"  
         WindowStartupLocation="CenterScreen"
         Height="1000" Width="1500"
         >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 
     <DockPanel >
         <materialDesign:Card
             DockPanel.Dock="Left" Margin="5">
             <Expander
-            ExpandDirection="Right">
+                ExpandDirection="Right">
                 <Expander.Header>
                     <TextBlock
-                    Text="Tính năng"
-                    RenderTransformOrigin=".5,.5">
+                        Text="Tính năng"
+                        RenderTransformOrigin=".5,.5">
                         <TextBlock.LayoutTransform>
                             <RotateTransform
-                            Angle="90" />
+                                Angle="90" />
                         </TextBlock.LayoutTransform>
                     </TextBlock>
                 </Expander.Header>
                 <Grid
-                DockPanel.Dock="Left" Width="203" >
+                    DockPanel.Dock="Left" Width="203" >
 
                     <StackPanel
-                    x:Name="tabTinhNang"
-                    VerticalAlignment="Top"
-                    Width="200"
+                        x:Name="tabTinhNang"
+                        VerticalAlignment="Top"
+                        Width="200"
                                 
-                    materialDesign:ThemeAssist.Theme="Light"
-                    >
+                        materialDesign:ThemeAssist.Theme="Light"
+                        >
 
                         <StackPanel>
                             <!--Ẩn tab-->
                             <Grid
-                            Height="70"
-                            >
+                                Height="70"
+                                >
 
                             </Grid>
 
                             <!--tab Tìm kiếm-->
                             <StackPanel
-                            Height="70"
+                                Height="70"
 
                 
-                            >
-                                <StackPanel
-                                Margin="15"
                                 >
-                                    <TextBox x:Name="txtTimmKiem_Tab"
-                                             
-                        
-                                         Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
-                        
-                                         VerticalAlignment="Center"
-                                         Height="auto"
-                                         AcceptsReturn="True"
-                                         TextWrapping="Wrap"
-                                         VerticalScrollBarVisibility="Auto"
-                                         materialDesign:HintAssist.Hint="Tìm kiếm"
-                                         IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextFieldTextBoxEnabledComboBox}" >
+                                <StackPanel
+                                    Margin="15"
+                                    >
+                                    <TextBox x:Name="txtTimmKiem_Tab" TextChanged="TxtTimmKiem_Tab_TextChanged"
+                                             Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                                             VerticalAlignment="Center"
+                                             Height="auto"
+                                             AcceptsReturn="True"
+                                             TextWrapping="Wrap"
+                                             VerticalScrollBarVisibility="Auto"
+                                             materialDesign:HintAssist.Hint="Tìm kiếm"
+                                             IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextFieldTextBoxEnabledComboBox}" >
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="TextChanged">
+                                                <i:InvokeCommandAction Command="{Binding TextChangedCommand}"/>
+                                                <i:InvokeCommandAction CommandParameter="{Binding ElementName=treeViewTinhNang}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
 
                                     </TextBox>
 
@@ -77,14 +86,11 @@
 
                             <!--ListBox hiển thị-->
                             <Grid  x:Name="gridListBox" 
-                               Background="{Binding Path=SelectedItem, ElementName=listBoxTab}"
+                                   Background="{Binding Path=SelectedItem, ElementName=listBoxTab}"
                   
-                               >
+                                   >
                                 <TreeView x:Name="treeViewTinhNang"
-                    
-                                          
-                                          
-                                      >
+                                          >
 
                                     <TreeViewItem Header="Tìm kiếm sách"></TreeViewItem>
 
@@ -117,7 +123,8 @@
         
         <Grid Height="70" DockPanel.Dock="Top" Background="Aqua" Margin="5"></Grid>
         
-            <view:TimKiemSachUC VerticalAlignment="Center" Margin="5"></view:TimKiemSachUC>
+        <view:TimKiemSachUC VerticalAlignment="Center" Margin="5"></view:TimKiemSachUC>
+        <!--<view:QuanLyThongTinSachUC Visibility="Collapsed"></view:QuanLyThongTinSachUC>-->
         
         
     </DockPanel>
