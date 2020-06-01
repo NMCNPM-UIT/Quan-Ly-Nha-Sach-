@@ -1,5 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:BookStoreClone.Resources">
+                    xmlns:local="clr-namespace:BookStoreClone.Resources"
+                    xmlns:viewmodel="clr-namespace:BookStoreClone.ViewModel">
+                <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
+                <viewmodel:TimKiemSachViewModel x:Key="TimKiemVM"></viewmodel:TimKiemSachViewModel>
+                <viewmodel:SachViewModel x:Key="SachVM"></viewmodel:SachViewModel>
     
 </ResourceDictionary>
