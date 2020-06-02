@@ -1,62 +1,126 @@
-﻿<UserControl x:Class="BookStoreClone.View.TimKiemSachUC"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:BookStoreClone.View" 
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             mc:Ignorable="d" 
-             DataContext="{StaticResource TimKiemVM}"   
-             
-             x:Name="timKiemSachUC"
-             d:DesignHeight="800" d:DesignWidth="1200">
-    
+﻿<UserControl
+    x:Class="BookStoreClone.View.TimKiemSachUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:BookStoreClone.View"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="timKiemSachUC"
+    d:DesignHeight="800"
+    d:DesignWidth="1200"
+    DataContext="{StaticResource TimKiemVM}"
+    mc:Ignorable="d">
+
     <DockPanel>
 
-        <materialDesign:Card DockPanel.Dock="Right" Width="426" x:Name="pnlThongTinSach" >
+        <materialDesign:Card
+            x:Name="pnlThongTinSach"
+            Width="426"
+            DockPanel.Dock="Right">
             <StackPanel>
-                <Canvas  Height="500">
+                <Canvas Height="500">
 
-                    <Image Height="345" Width="350" Canvas.Left="42" Canvas.Top="10"></Image>
-                    <TextBlock Foreground="Black" FontSize="25" RenderTransformOrigin="0.739,-0.722" Canvas.Left="42" Canvas.Top="381">Ten</TextBlock>
-                    <TextBlock Foreground="Black" FontSize="17" Canvas.Left="309" Canvas.Top="467" >Kho: 200 cuốn</TextBlock>
-                    <TextBlock Foreground="Black" FontSize="25" Canvas.Left="152" Canvas.Top="430" RenderTransformOrigin="0.365,1.083" >80000đ</TextBlock>
-                    <Button Command="{Binding AnSachCommand}" 
-                            CommandParameter="{Binding ElementName=pnlThongTinSach}"
-                            ToolBar.OverflowMode="AsNeeded"
-                            Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
-                            ToolTip="MaterialDesignFloatingActionMiniLightButton" Canvas.Left="10" Canvas.Top="10" RenderTransformOrigin="1.15,0.6">
+                    <Image
+                        Canvas.Left="42"
+                        Canvas.Top="10"
+                        Width="350"
+                        Height="345" />
+                    <TextBlock
+                        Canvas.Left="42"
+                        Canvas.Top="381"
+                        FontSize="25"
+                        Foreground="Black"
+                        RenderTransformOrigin="0.739,-0.722">
+                        Ten
+                    </TextBlock>
+                    <TextBlock
+                        Canvas.Left="309"
+                        Canvas.Top="467"
+                        FontSize="17"
+                        Foreground="Black">
+                        Kho: 200 cuốn
+                    </TextBlock>
+                    <TextBlock
+                        Canvas.Left="152"
+                        Canvas.Top="430"
+                        FontSize="25"
+                        Foreground="Black"
+                        RenderTransformOrigin="0.365,1.083">
+                        80000đ
+                    </TextBlock>
+                    <Button
+                        Canvas.Left="10"
+                        Canvas.Top="10"
+                        Command="{Binding AnSachCommand}"
+                        CommandParameter="{Binding ElementName=pnlThongTinSach}"
+                        RenderTransformOrigin="1.15,0.6"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                        ToolBar.OverflowMode="AsNeeded"
+                        ToolTip="MaterialDesignFloatingActionMiniLightButton">
                         <materialDesign:PackIcon
-                            Kind="Close"
+                            Width="24"
                             Height="24"
-                            Width="24" RenderTransformOrigin="1.583,2.583" />
+                            Kind="Close"
+                            RenderTransformOrigin="1.583,2.583" />
                     </Button>
                 </Canvas>
-                <WrapPanel Canvas.Left="46" Canvas.Top="486" Width="350" Margin="10">
-                    <TextBlock Foreground="Black" FontSize="17" TextWrapping="Wrap">Thể loại: kinh dị, hài kịch, trinh thám</TextBlock>
+                <WrapPanel
+                    Canvas.Left="46"
+                    Canvas.Top="486"
+                    Width="350"
+                    Margin="10">
+                    <TextBlock
+                        FontSize="17"
+                        Foreground="Black"
+                        TextWrapping="Wrap">
+                        Thể loại: kinh dị, hài kịch, trinh thám
+                    </TextBlock>
                 </WrapPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Foreground="Black" FontSize="17" Margin="38,0,10,0" TextWrapping="Wrap" >Tác giả: Anh Huấn, Bảnh, Mai siêu phong
+                    <TextBlock
+                        Grid.Column="0"
+                        Margin="38,0,10,0"
+                        FontSize="17"
+                        Foreground="Black"
+                        TextWrapping="Wrap">
+                        Tác giả: Anh Huấn, Bảnh, Mai siêu phong
                     </TextBlock>
 
-                    <TextBlock Grid.Column="1" Foreground="Black" FontSize="17" Margin="20,0,10,0" TextWrapping="Wrap">Nhà xuất bản sự thật</TextBlock>
+                    <TextBlock
+                        Grid.Column="1"
+                        Margin="20,0,10,0"
+                        FontSize="17"
+                        Foreground="Black"
+                        TextWrapping="Wrap">
+                        Nhà xuất bản sự thật
+                    </TextBlock>
                 </Grid>
                 <DockPanel>
 
-                    <TextBlock DockPanel.Dock="Top" Margin="0,10,0,0" HorizontalAlignment="Center" FontSize="17">----------Mô tả------------</TextBlock>
-                    <TextBlock TextWrapping="Wrap" Margin="38,10,0,10" FontSize="15">Is there any way to make lines between points, given a simple geometry as line style, using WPF geometries? I know it is possible to make these kind of lines:
-
-                               -- -- --- --
-                               But I want to make lines, using any simple geometry (e.g: the '^' symbol). So what I want is something like these: (the line may not necessarily be horizontal or vertical):
-
-                               ^^^^^^^^^^^^^^^^^    
-                               *****************
-                               Note: I don't want to make line with some characters. I want to do it using any arbitrary geometries (e.g: start shape, triangle, or any other geometry). In other word I want to repeat some geometries along a linear path between two points. So these simple geometries may be rotated somehow to follow the line and ...</TextBlock>
+                    <TextBlock
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Center"
+                        DockPanel.Dock="Top"
+                        FontSize="17">
+                        ----------Mô tả------------
+                    </TextBlock>
+                    <TextBlock
+                        Margin="38,10,0,10"
+                        FontSize="15"
+                        TextWrapping="Wrap">
+                        Is there any way to make lines between points, given a simple geometry as line style, using WPF geometries? I know it is possible to make these kind of lines:
+                        -- -- --- --
+                        But I want to make lines, using any simple geometry (e.g: the '^' symbol). So what I want is something like these: (the line may not necessarily be horizontal or vertical):
+                        ^^^^^^^^^^^^^^^^^
+                        *****************
+                        Note: I don't want to make line with some characters. I want to do it using any arbitrary geometries (e.g: start shape, triangle, or any other geometry). In other word I want to repeat some geometries along a linear path between two points. So these simple geometries may be rotated somehow to follow the line and ...
+                    </TextBlock>
 
 
                 </DockPanel>
@@ -65,29 +129,25 @@
             </StackPanel>
         </materialDesign:Card>
         <DockPanel>
-            <!--Tìm Kiếm-->
+            <!--  Tìm Kiếm  -->
             <DockPanel
-                VerticalAlignment="Center"
-                
                 Height="44"
-                DockPanel.Dock="Top"
-                
-                >
+                VerticalAlignment="Center"
+                DockPanel.Dock="Top">
                 <StackPanel
                     Height="auto"
-                    Orientation="Horizontal"
                     HorizontalAlignment="Center"
-                    materialDesign:RippleAssist.IsCentered="True">
+                    materialDesign:RippleAssist.IsCentered="True"
+                    Orientation="Horizontal">
 
                     <ComboBox
-                        
-                        SelectedIndex="0"
-                        Margin="8 0 0 0"
-                        BorderThickness="0"
+                        Margin="8,0,0,0"
                         materialDesign:ColorZoneAssist.Mode="Standard"
                         materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource MaterialDesignPaper}"
-                        BorderBrush="{DynamicResource MaterialDesignPaper}">
-                        <ComboBoxItem >
+                        BorderBrush="{DynamicResource MaterialDesignPaper}"
+                        BorderThickness="0"
+                        SelectedIndex="0">
+                        <ComboBoxItem>
                             Tên sách
                         </ComboBoxItem>
                         <ComboBoxItem>
@@ -95,56 +155,65 @@
                         </ComboBoxItem>
                     </ComboBox>
                     <materialDesign:ColorZone
-                        Mode="Standard"
-                        Padding="8 4 8 4"
-                        CornerRadius="2"
+                        Margin="16,0,0,0"
+                        Padding="8,4,8,4"
                         Panel.ZIndex="1"
-                        Margin="16 0 0 0"
-                        materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                        materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                        CornerRadius="2"
+                        Mode="Standard">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition
-                                    Width="Auto" />
-                                <ColumnDefinition
-                                    Width="*" />
-                                <ColumnDefinition
-                                    Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <Button
-                                Style="{DynamicResource MaterialDesignToolButton}">
-                                <materialDesign:PackIcon
-                                    Kind="Magnify"
-                                    Opacity=".56" />
+                            <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
                             </Button>
                             <TextBox
                                 Grid.Column="1"
-                                Margin="8 0 0 0"
+                                MinWidth="200"
+                                Margin="8,0,0,0"
+                                VerticalAlignment="Center"
                                 materialDesign:HintAssist.Hint="Build a search bar"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                BorderThickness="0"
-                                MinWidth="200"
-                                VerticalAlignment="Center" />
+                                BorderThickness="0" />
 
                         </Grid>
                     </materialDesign:ColorZone>
 
                 </StackPanel>
-                <StackPanel Height="50" Background="Azure" DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel
+                    Height="50"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="Azure"
+                    DockPanel.Dock="Top"
+                    Orientation="Horizontal">
                     <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button Margin="10,5,10,5">
                             <materialDesign:PackIcon Kind="ChevronDoubleLeft" />
                         </Button>
                         <Button Margin="10,5,10,5">
-                            <materialDesign:PackIcon Kind="ChevronLeft"  />
+                            <materialDesign:PackIcon Kind="ChevronLeft" />
                         </Button>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
 
                             </Grid.ColumnDefinitions>
-                            <TextBox x:Name="txtSoTrangHienTai" TextChanged="txtSoTrangtxtChanged" Width="50" Grid.Column="0" VerticalAlignment="Center"></TextBox>
-                            <TextBlock Text="/Max: " Width="50" Grid.Column="1" VerticalAlignment="Center"></TextBlock>
+                            <TextBox
+                                x:Name="txtSoTrangHienTai"
+                                Grid.Column="0"
+                                Width="50"
+                                VerticalAlignment="Center"
+                                TextChanged="txtSoTrangtxtChanged" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Width="50"
+                                VerticalAlignment="Center"
+                                Text="/Max: " />
                         </Grid>
                         <Button Margin="10,5,10,5">
                             <materialDesign:PackIcon Kind="ChevronRight" />
@@ -156,17 +225,17 @@
                 </StackPanel>
             </DockPanel>
 
-            
+
             <materialDesign:Card Margin="0,0,5,0" DockPanel.Dock="Top">
                 <ScrollViewer>
-                    <WrapPanel x:Name="pnlHienThiSach" HorizontalAlignment="Center"></WrapPanel>
+                    <WrapPanel x:Name="pnlHienThiSach" HorizontalAlignment="Center" />
                 </ScrollViewer>
 
             </materialDesign:Card>
 
-           
+
 
         </DockPanel>
-        
+
     </DockPanel>
 </UserControl>

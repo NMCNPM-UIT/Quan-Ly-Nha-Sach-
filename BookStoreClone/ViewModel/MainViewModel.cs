@@ -13,26 +13,42 @@ namespace BookStoreClone.ViewModel
     public class MainViewModel : BaseViewModel
     {
         public bool Isloaded = false;
-        public ICommand LoadedWindowCommand { get; set; }
         public ICommand TextChangedCommand { get; set; }
-
+        public ICommand LoadedWindowCommand { get; set; }
 
         public MainViewModel()
         {
+            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+             {
+                 Isloaded = true;
+                 if (p == null)
+                     return;
+                 p.Hide();
+
+                 Login loginWindow = new Login();
+                 loginWindow.ShowDialog();
+                 if (loginWindow.DataContext == null)
+                     return;
+
+                 var loginVM = loginWindow.DataContext as LoginViewModel;
+                 if(loginVM.IsLogin)
+                 {
+                     p.Show();
+                 }
+                 else
+                 {
+                     p.Close();
+                 }
+             });
 
             TextChangedCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 MessageBox.Show((p as TextBox).ToString());
             }
             );
-            LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                Isloaded = true;
+          
+          
 
-            }
-
-            );
-            MessageBox.Show(DataProvider.Ins.DB.Saches.First().TenSach);
         }
     }
 }
