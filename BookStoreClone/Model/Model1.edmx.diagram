@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="106af636f5e24ce88eab26e60db0a300" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="QLNSModel.BaoCaoCongNo" Width="1.5" PointX="1.5" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNSModel.BaoCaoTon" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNSModel.CTBaoCaoCongNo" Width="1.5" PointX="3.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNSModel.CTBaoCaoTon" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNSModel.CTHD" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNSModel.CTPhieuNhap" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNSModel.HoaDon" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNSModel.KhachHang" Width="1.5" PointX="1.5" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNSModel.NguoiDung" Width="1.5" PointX="1.5" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNSModel.PhieuNhap" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNSModel.PhieuThuTien" Width="1.5" PointX="3.75" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNSModel.QuyDinh" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNSModel.Sach" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNSModel.TacGia" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLNSModel.TheLoai" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
+        <AssociationConnector Association="QLNSModel.FK_CTBaoCaoCongNo_BaoCaoCongNo" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNSModel.FK_CTBaoCaoTon_BaoCaoTon" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNSModel.FK_CTBaoCaoCongNo_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNSModel.FK_CTBaoCaoTon_Sach" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNSModel.FK_CTHD_HoaDon" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNSModel.FK_CTHD_Sach" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNSModel.FK_CTPhieuNhap_PhieuNhap" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNSModel.FK_CTPhieuNhap_Sach" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNSModel.FK_HoaDon_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNSModel.FK_HoaDon_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNSModel.FK_PhieuThuTien_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNSModel.FK_PhieuNhap_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNSModel.FK_PhieuThuTien_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNSModel.CTTacGia" ManuallyRouted="false" />
+        <AssociationConnector Association="QLNSModel.CTTheLoai" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
