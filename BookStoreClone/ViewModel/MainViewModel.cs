@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using BookStoreClone.Model;
 using BookStoreClone.View;
 namespace BookStoreClone.ViewModel
 {
@@ -14,20 +15,24 @@ namespace BookStoreClone.ViewModel
         public bool Isloaded = false;
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand TextChangedCommand { get; set; }
-        
-        
+
+
         public MainViewModel()
         {
 
-            TextChangedCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
+            TextChangedCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
                 MessageBox.Show((p as TextBox).ToString());
             }
             );
-            LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
+            LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
                 Isloaded = true;
-               
+
             }
-              );           
+
+            );
+            MessageBox.Show(DataProvider.Ins.DB.Saches.First().TenSach);
         }
     }
 }
