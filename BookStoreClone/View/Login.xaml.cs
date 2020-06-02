@@ -24,16 +24,8 @@ namespace BookStoreClone.View
             InitializeComponent();
             
         }
-        private void btnDangNhap_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow home = new MainWindow();
-            home.Show();
-            this.Hide();
-        }
-        private void btnThoat_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+       
+       
         private void btnDong_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();

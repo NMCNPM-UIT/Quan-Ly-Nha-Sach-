@@ -3,16 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:local="clr-namespace:BookStoreClone.View"
         mc:Ignorable="d"
         WindowStyle="None"
         ResizeMode="NoResize"
+        DataContext="{StaticResource LoginVM}"  
         Title="Login" 
         Height="600"
         Width="500"
-        WindowStartupLocation="CenterOwner"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        >
+        Name="loginWindow"
+        WindowStartupLocation="CenterScreen"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" >
     <Grid Background="#ffe082" >
 
         <Grid.RowDefinitions>
@@ -71,23 +73,30 @@
                         <ColumnDefinition Width="289*"/>
                         <ColumnDefinition Width="61*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox materialDesign:HintAssist.Hint="Tên Đăng Nhập"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.ColumnSpan="2" />
+                    <TextBox materialDesign:HintAssist.Hint="Tên Đăng Nhập"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.ColumnSpan="2" Text="{Binding UserName}" />
                 </Grid>
                 <Grid Grid.Row="1">
-                    <PasswordBox x:Name="FloatingPasswordBox" materialDesign:HintAssist.Hint=" Mật Khẩu" materialDesign:HintAssist.Foreground="Green" materialDesign:TextFieldAssist.UnderlineBrush="Green" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                    <PasswordBox x:Name="FloatingPasswordBox" materialDesign:HintAssist.Hint=" Mật Khẩu" materialDesign:HintAssist.Foreground="Green" materialDesign:TextFieldAssist.UnderlineBrush="Green" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PasswordChanged">
+                                <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" CommandParameter="{Binding ElementName=FloatingPasswordBox}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </PasswordBox>
                 </Grid>
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="180*"></ColumnDefinition>
+                        <ColumnDefinition Width="109*"></ColumnDefinition>
+                        <ColumnDefinition Width="71*"/>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0" >
-                        <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="50"  materialDesign:ButtonAssist.CornerRadius="5"  ToolTip="MaterialDesignRaisedLightButton with Round Corners"  Width="110" Click="btnDangNhap_Click" Name="btnDangNhap" Margin="20,0,20,-9" >
+                        <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="50"  materialDesign:ButtonAssist.CornerRadius="5"  ToolTip="MaterialDesignRaisedLightButton with Round Corners"  Width="110"  Name="btnDangNhap" Margin="20,0,20,-9"  Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=loginWindow}"  IsDefault="True">
                             <TextBlock Text="Đăng nhập" ></TextBlock>
                         </Button>
                     </Grid>
-                    <Grid Grid.Column="1">
-                        <Button Style="{StaticResource MaterialDesignRaisedAccentButton}"  materialDesign:ButtonAssist.CornerRadius="5"  ToolTip="MaterialDesignRaisedLightButton with Round Corners" Height="50" Width="110" Click="btnThoat_Click" Name="btnThoat" Margin="20,0,20,-9" >
+                    <Grid Grid.Column="1" Grid.ColumnSpan="2">
+                        <Button IsDefault="True" Style="{StaticResource MaterialDesignRaisedAccentButton}"  materialDesign:ButtonAssist.CornerRadius="5"  ToolTip="MaterialDesignRaisedLightButton with Round Corners" Height="50" Width="110" Name="btnThoat" Margin="20,0,20,-9" >
                             <TextBlock Text="Thoát" />
                         </Button>
                     </Grid>
