@@ -21,24 +21,25 @@ namespace BookStoreClone.ViewModel
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
              {
                  Isloaded = true;
-                 if (p == null)
-                     return;
-                 p.Hide();
+                 p.Show();
+                 //if (p == null)
+                 //    return;
+                 //p.Hide();
 
-                 Login loginWindow = new Login();
-                 loginWindow.ShowDialog();
-                 if (loginWindow.DataContext == null)
-                     return;
+                 //Login loginWindow = new Login();
+                 //loginWindow.ShowDialog();
+                 //if (loginWindow.DataContext == null)
+                 //    return;
 
-                 var loginVM = loginWindow.DataContext as LoginViewModel;
-                 if(loginVM.IsLogin)
-                 {
-                     p.Show();
-                 }
-                 else
-                 {
-                     p.Close();
-                 }
+                 //var loginVM = loginWindow.DataContext as LoginViewModel;
+                 //if(loginVM.IsLogin)
+                 //{
+                 //    p.Show();
+                 //}
+                 //else
+                 //{
+                 //    p.Close();
+                 //}
              });
 
             TextChangedCommand = new RelayCommand<object>((p) => { return true; }, (p) =>

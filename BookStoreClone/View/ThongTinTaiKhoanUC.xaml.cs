@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace BookStoreClone.View
 {
     /// <summary>
-    /// Interaction logic for Menu.xaml
+    /// Interaction logic for ThongTinTaiKhoanUC.xaml
     /// </summary>
-    public partial class Menu : UserControl
+    public partial class ThongTinTaiKhoanUC : UserControl
     {
-        public Menu()
+        public ThongTinTaiKhoanUC()
         {
             InitializeComponent();
         }

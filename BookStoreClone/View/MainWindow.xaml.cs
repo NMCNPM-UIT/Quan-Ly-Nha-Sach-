@@ -27,5 +27,10 @@ namespace BookStoreClone
         {
             MessageBox.Show((e.Source as TextBox).Text);
         }
+
+        private void TimKiemSachUC_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

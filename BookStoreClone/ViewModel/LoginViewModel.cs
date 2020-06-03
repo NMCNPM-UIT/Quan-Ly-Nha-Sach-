@@ -32,15 +32,17 @@ namespace BookStoreClone.ViewModel
             IsLogin = false;
             LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { Login(p); });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
+
             CloseWindow = new RelayCommand<Window>((p) => { return true; }, (p) => { p.Close(); });
             void Login (Window p)
             {
                 
                 if (p == null)
                     return;
+                string pass = Password;
                 string passEncode = MD5Hash(Base64Encode(Password));
                 var account = DataProvider.Ins.DB.NguoiDungs.Where(x => x.TenDangNhap == UserName && x.MatKhau == passEncode).Count();
-                if(account > 0)
+                if (account > 0)
                 {
                     IsLogin = true;
                     p.Close();

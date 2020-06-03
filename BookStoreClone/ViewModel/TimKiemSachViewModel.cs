@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,16 +14,24 @@ namespace BookStoreClone.ViewModel
 {
     class TimKiemSachViewModel:BaseViewModel
     {
+        private string _tenSach;
+        public string TenSach { get => _tenSach; set { _tenSach = value; } }
+
+
+
         #region commands
         public ICommand AnSachCommand { get; set; }
 
         #endregion
         public TimKiemSachViewModel()
         {
-            AnSachCommand = new RelayCommand<Card>((p) => { return p == null ? false : true; }, (p) =>
+           
+            AnSachCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
               
-                (p as Card).Visibility = Visibility.Collapsed;
+               
+           
+               
             }
             );
 

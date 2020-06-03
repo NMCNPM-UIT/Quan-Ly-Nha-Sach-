@@ -146,9 +146,6 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\SachViewModel.cs" />
     <Compile Include="ViewModel\TimKiemSachViewModel.cs" />
-    <Compile Include="View\Menu.xaml.cs">
-      <DependentUpon>Menu.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\PhieuBanHangUC.xaml.cs">
       <DependentUpon>PhieuBanHangUC.xaml</DependentUpon>
     </Compile>
@@ -166,6 +163,9 @@
     </Compile>
     <Compile Include="View\SachUC.xaml.cs">
       <DependentUpon>SachUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThongTinTaiKhoanUC.xaml.cs">
+      <DependentUpon>ThongTinTaiKhoanUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TimKiemSachUC.xaml.cs">
       <DependentUpon>TimKiemSachUC.xaml</DependentUpon>
@@ -193,10 +193,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Menu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\PhieuBanHangUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -220,6 +216,10 @@
     <Page Include="View\SachUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThongTinTaiKhoanUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TimKiemSachUC.xaml">
       <SubType>Designer</SubType>
@@ -271,6 +271,7 @@
     <Resource Include="mountains.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="1.jpg" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
