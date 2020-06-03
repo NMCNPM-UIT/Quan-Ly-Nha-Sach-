@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 namespace BookStoreClone.View
 {
     /// <summary>
@@ -20,10 +21,36 @@ namespace BookStoreClone.View
     /// </summary>
     public partial class SachUC : UserControl
     {
-        public SachUC(string name)
+        public ICommand HienThoThongTinSachCommand { get; set; }
+        public SachUC(string name, string DonGia,string img)
         {
             InitializeComponent();
-            this.tbTenSach.Text = name;
+            DataContext = this;
+            tbTenSach.Text = name;
+            tbDonGia.Text = DonGia;
+            //BitmapImage bitmap = new BitmapImage();
+            //bitmap.BeginInit();
+            //bitmap.UriSource= new  Uri(@"/BookStoreClone;component/1.jpg");
+
+            //bitmap.EndInit();
+            //imgAnhSach.Source = bitmap;
+            Application.from
+            imgAnhSach.Source = new BitmapImage(new Uri(app));
+            HienThoThongTinSachCommand = new ViewModel.RelayCommand<TextBlock>((p) => { return true; }, (p) =>
+            {
+                MessageBox.Show(p.Text);
+                DockPanel dockPanel = (((((((((p.Parent as Canvas).Parent as Button).Parent as Grid).Parent as SachUC).Parent as WrapPanel).Parent as ScrollViewer).Parent as Card).Parent as DockPanel).Parent as DockPanel);
+                (dockPanel.Parent as TimKiemSachUC).IDSach = p.Text;
+                for (int i = 0; i < dockPanel.Children.Count; i++)
+                    if (dockPanel.Children[i] is Card)
+                    {
+
+                        dockPanel.Children[i].Visibility = Visibility.Visible;
+
+                    }
+
+            }
+              );
         }
     }
 }

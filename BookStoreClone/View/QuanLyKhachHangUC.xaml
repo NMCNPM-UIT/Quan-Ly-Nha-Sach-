@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:BookStoreClone.View"
              mc:Ignorable="d" 
             d:DesignHeight="730" d:DesignWidth="1200"
+             Loaded="KhachHang_Loaded"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Grid>
         <Grid.RowDefinitions>
@@ -28,43 +29,49 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="tbMaKH" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Mã Khách Hàng"  Margin="30,4" IsEnabled="False" />
-                <TextBox x:Name="tbTenKH" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Tên Khách Hàng"  Margin="30,4" IsEnabled="False" />
-                <TextBox x:Name="tbTienNo" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Số Tiền Nợ"  Margin="30,4" IsEnabled="False" />
-                <TextBox x:Name="tbSDT" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="30,4"
-                          materialDesign:HintAssist.Hint="Số Điện Thoại" IsEnabled="False"/>
-                <TextBox x:Name="tbEmail" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="30,4"
-                          materialDesign:HintAssist.Hint="Email" IsEnabled="False"/>
-                <TextBox x:Name="tbDiaChi" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="30,4"
-                          materialDesign:HintAssist.Hint="Địa chỉ" IsEnabled="False"/>
+                <TextBox x:Name="txbMaKH" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Mã Khách Hàng"  Margin="30,4" IsEnabled="False"  Text="{Binding SelectedItem.MaKH, ElementName=dataKhachHang}" />
+                <TextBox x:Name="txbTenKH" Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="Tên Khách Hàng"  Margin="30,4" IsEnabled="False" Text="{Binding SelectedItem.TenKH, ElementName=dataKhachHang}" />
+                <TextBox x:Name="txbTienNo" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Số Tiền Nợ"  Margin="30,4" IsEnabled="False" Text="{Binding SelectedItem.SoTienNo, ElementName=dataKhachHang}" />
+                <TextBox x:Name="txbSDT" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="30,4"
+                          materialDesign:HintAssist.Hint="Số Điện Thoại" IsEnabled="False" Text="{Binding SelectedItem.SDT, ElementName=dataKhachHang}" />
+                <TextBox x:Name="txbEmail" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="30,4"
+                          materialDesign:HintAssist.Hint="Email" IsEnabled="False" Text="{Binding SelectedItem.Email, ElementName=dataKhachHang}"/>
+                <TextBox x:Name="txbDiaChi" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="30,4"
+                          materialDesign:HintAssist.Hint="Địa chỉ" IsEnabled="False" Text="{Binding SelectedItem.DiaChi, ElementName=dataKhachHang}" />
 
             </Grid>
 
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="2" Margin="5">
             <WrapPanel>
-                <Button Content="Thêm" Margin="200,5,5,5" Width="100" />
-                <Button Content="Sửa" Margin="200,5,5,5" Width="100" />
-                <Button Content="Lưu" Margin="200,5,5,5" Width="100" />
+                <Button x:Name="btnThemKH" Content="Thêm" Margin="200,5,5,5" Width="100" Click="btnThemKH_Click" />
+                <Button x:Name="btnSua" Content="Sửa" Margin="200,5,5,5" Width="100" />
+                <Button x:Name="btnLuu" Content="Lưu" Margin="200,5,5,5" Width="100"  />
             </WrapPanel>
         </materialDesign:Card>
-        <materialDesign:Card Grid.Row="3" Margin="5" VerticalAlignment="Stretch">
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView>
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Mã KH" Width="190"></GridViewColumn>
-                            <GridViewColumn Header="Tên KH" Width="190"></GridViewColumn>
-                            <GridViewColumn Header="SĐT" Width="190"></GridViewColumn>
-                            <GridViewColumn Header="Email" Width="190"></GridViewColumn>
-                            <GridViewColumn Header="Địa chỉ" Width="190"></GridViewColumn>
-                            <GridViewColumn Header="Số tiền nợ" Width="190"></GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-
-            </ScrollViewer>
-        </materialDesign:Card>
+        <Grid Grid.Row="3" Margin="5">
+            <DataGrid x:Name="dataKhachHang" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                
+                                <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                        ToolTip="Xóa khách hàng"  Height="25" Width="25" Click="btnXoaKH">
+                                    <materialDesign:PackIcon Kind="DeleteForever" Height="20" Width="20"  />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Binding="{Binding MaKH, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Mã Khách Hàng"/>
+                    <DataGridTextColumn Binding="{Binding TenKH, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tên Khách Hàng"/>
+                    <DataGridTextColumn Binding="{Binding SDT, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Số Điện Thoại"/>
+                    <DataGridTextColumn Binding="{Binding Email, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Email"/>
+                    <DataGridTextColumn Binding="{Binding DiaChi, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Địa Chỉ"/>
+                    <DataGridTextColumn Binding="{Binding SoTienNo, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Số Tiền Nợ"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
 
 
     </Grid>

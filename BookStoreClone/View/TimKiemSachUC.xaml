@@ -15,12 +15,15 @@
 
     <DockPanel>
 
-        <materialDesign:Card
+        <materialDesign:Card 
+            Tag="{Binding IDSach}"
+            
+            Visibility="Collapsed"
             x:Name="pnlThongTinSach"
             Width="426"
             DockPanel.Dock="Right">
-            <StackPanel>
-                <Canvas Height="500">
+            <StackPanel >
+                <Canvas Height="500" DockPanel.Dock="Top">
 
                     <Image
                         Canvas.Left="42"
@@ -28,17 +31,19 @@
                         Width="350"
                         Height="345" />
                     <TextBlock
+                        Text="{Binding TenSach}"
                         Canvas.Left="42"
-                        Canvas.Top="381"
+                        Canvas.Top="360"
                         FontSize="25"
                         Foreground="Black"
                         RenderTransformOrigin="0.739,-0.722">
-                        Ten
+
                     </TextBlock>
                     <TextBlock
                         Canvas.Left="309"
                         Canvas.Top="467"
                         FontSize="17"
+                        Text="{Binding SoLuongTon}"
                         Foreground="Black">
                         Kho: 200 cuốn
                     </TextBlock>
@@ -47,14 +52,14 @@
                         Canvas.Top="430"
                         FontSize="25"
                         Foreground="Black"
+                        Text="{Binding GiaSach}"
                         RenderTransformOrigin="0.365,1.083">
-                        80000đ
+
                     </TextBlock>
                     <Button
                         Canvas.Left="10"
                         Canvas.Top="10"
-                        Command="{Binding AnSachCommand}"
-                        CommandParameter="{Binding ElementName=pnlThongTinSach}"
+                        Click="Button_Click"
                         RenderTransformOrigin="1.15,0.6"
                         Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
                         ToolBar.OverflowMode="AsNeeded"
@@ -67,6 +72,8 @@
                     </Button>
                 </Canvas>
                 <WrapPanel
+                    
+                    DockPanel.Dock="Top"
                     Canvas.Left="46"
                     Canvas.Top="486"
                     Width="350"
@@ -74,34 +81,37 @@
                     <TextBlock
                         FontSize="17"
                         Foreground="Black"
+                        Text="{Binding TheLoai}"
                         TextWrapping="Wrap">
-                        Thể loại: kinh dị, hài kịch, trinh thám
+
                     </TextBlock>
                 </WrapPanel>
-                <Grid>
+                <Grid DockPanel.Dock="Top">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock
+                        Text="{Binding TacGia}"
                         Grid.Column="0"
                         Margin="38,0,10,0"
                         FontSize="17"
                         Foreground="Black"
                         TextWrapping="Wrap">
-                        Tác giả: Anh Huấn, Bảnh, Mai siêu phong
+
                     </TextBlock>
 
                     <TextBlock
+                        Text="{Binding NhaXB}"
                         Grid.Column="1"
                         Margin="20,0,10,0"
                         FontSize="17"
                         Foreground="Black"
                         TextWrapping="Wrap">
-                        Nhà xuất bản sự thật
+
                     </TextBlock>
                 </Grid>
-                <DockPanel>
+                <DockPanel >
 
                     <TextBlock
                         Margin="0,10,0,0"
@@ -111,15 +121,11 @@
                         ----------Mô tả------------
                     </TextBlock>
                     <TextBlock
+                       
                         Margin="38,10,0,10"
                         FontSize="15"
+                        Text="{Binding MoTaSach}"
                         TextWrapping="Wrap">
-                        Is there any way to make lines between points, given a simple geometry as line style, using WPF geometries? I know it is possible to make these kind of lines:
-                        -- -- --- --
-                        But I want to make lines, using any simple geometry (e.g: the '^' symbol). So what I want is something like these: (the line may not necessarily be horizontal or vertical):
-                        ^^^^^^^^^^^^^^^^^
-                        *****************
-                        Note: I don't want to make line with some characters. I want to do it using any arbitrary geometries (e.g: start shape, triangle, or any other geometry). In other word I want to repeat some geometries along a linear path between two points. So these simple geometries may be rotated somehow to follow the line and ...
                     </TextBlock>
 
 
@@ -210,10 +216,11 @@
                                 VerticalAlignment="Center"
                                 TextChanged="txtSoTrangtxtChanged" />
                             <TextBlock
+                              x:Name="txbMaxTrang"
                                 Grid.Column="1"
                                 Width="50"
                                 VerticalAlignment="Center"
-                                Text="/Max: " />
+                                 />
                         </Grid>
                         <Button Margin="10,5,10,5">
                             <materialDesign:PackIcon Kind="ChevronRight" />
@@ -226,7 +233,7 @@
             </DockPanel>
 
 
-            <materialDesign:Card Margin="0,0,5,0" DockPanel.Dock="Top">
+            <materialDesign:Card Margin="0,0,5,0" DockPanel.Dock="Top" >
                 <ScrollViewer>
                     <WrapPanel x:Name="pnlHienThiSach" HorizontalAlignment="Center" />
                 </ScrollViewer>

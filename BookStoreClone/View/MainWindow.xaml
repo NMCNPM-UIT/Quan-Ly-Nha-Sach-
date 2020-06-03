@@ -10,7 +10,7 @@
     xmlns:view="clr-namespace:BookStoreClone.View"
     Name="mainWindow"
     Title="MainWindow"
-    Width="1500"
+    Width="1542"
     Height="1000"
     DataContext="{StaticResource MainVM}"
     WindowStartupLocation="CenterScreen"
@@ -24,22 +24,17 @@
 
     <DockPanel>
         <materialDesign:Card Margin="5" DockPanel.Dock="Left">
+            <!--TabMenu-->
             <Expander ExpandDirection="Right">
                 <Expander.Header>
-                    <TextBlock RenderTransformOrigin=".5,.5" Text="Tính năng">
-                        <TextBlock.LayoutTransform>
-                            <RotateTransform Angle="90" />
-                        </TextBlock.LayoutTransform>
-                    </TextBlock>
+                    <materialDesign:PackIcon Kind="Menu" />
                 </Expander.Header>
-                <Grid Width="203" DockPanel.Dock="Left">
-
+                <Grid Width="245" DockPanel.Dock="Left">
                     <StackPanel
                         x:Name="tabTinhNang"
-                        Width="200"
+                        Width="245"
                         VerticalAlignment="Top"
                         materialDesign:ThemeAssist.Theme="Light">
-
                         <StackPanel>
                             <!--  Ẩn tab  -->
                             <Grid Height="70" />
@@ -73,27 +68,51 @@
                             <!--  ListBox hiển thị  -->
                             <Grid x:Name="gridListBox" Background="{Binding Path=SelectedItem, ElementName=listBoxTab}">
                                 <TreeView x:Name="treeViewTinhNang">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="AccountEdit" Margin="5,10,0,0" />
+                                        <TreeViewItem Header="Tài Khoản">
+                                            <TreeViewItem Header="Thông Tin Tài Khoản" />
+                                            <TreeViewItem Header="Quản Lý Người Dùng"/>
+                                        </TreeViewItem>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="TextBox" Margin="5,10,0,0"/>
+                                        <TreeViewItem Header="Quản Lý">
+                                            <TreeViewItem Header="Sách"/>
+                                            <TreeViewItem Header="Dữ Liệu Sách"/>
+                                            <TreeViewItem Header="Khách Hàng"/>
+                                        </TreeViewItem>
+                                    </StackPanel>
 
-                                    <TreeViewItem Header="Tìm kiếm sách" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="CashUsdOutline" Margin="5,10,0,0" />
+                                        <TreeViewItem Header="Kinh Doanh">
+                                            <TreeViewItem Header="Nhập Sách" />
+                                            <TreeViewItem Header="Lập Hóa Đơn Bán Sách" />
+                                            <TreeViewItem Header="Lập Phiếu Thu Tiền" />
+                                        </TreeViewItem>
+                                    </StackPanel>
 
-                                    <TreeViewItem Header="Quản lý sách">
-                                        <TreeViewItem Header="Tạo sách mới" />
-                                        <TreeViewItem Header="Thể loại" />
-                                        <TreeViewItem Header="Tác giả" />
-                                    </TreeViewItem>
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Magnify" Margin="5,10,0,0" />
+                                        <TreeViewItem Header="Tìm Kiếm">
+                                            <TreeViewItem Header="Tìm Kiếm Sách" />
+                                            <TreeViewItem Header="Tìm Kiếm Khách Hàng" />
+                                        </TreeViewItem>
+                                    </StackPanel>
 
-                                    <TreeViewItem Header="Quản lý kinh doanh">
-                                        <TreeViewItem Header="Nhập kho" />
-                                        <TreeViewItem Header="Bán sách" />
-                                        <TreeViewItem Header="Thu Tiền" />
-                                        <TreeViewItem Header="Thống kê" />
-                                    </TreeViewItem>
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="FileChart" Margin="5,8,0,0" />
+                                        <TreeViewItem Header="Báo Cáo">
+                                            <TreeViewItem Header="Báo Cáo Công Nợ" />
+                                            <TreeViewItem Header="Báo Cáo Tồn Kho" />
+                                        </TreeViewItem>
+                                    </StackPanel>
 
-                                    <TreeViewItem Header="Hệ thống">
-                                        <TreeViewItem Header="Tài khoản" />
-                                        <TreeViewItem Header="Quản lý nhân viên" />
-                                    </TreeViewItem>
-
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Cog" Margin="5,10,0,0" />
+                                        <TreeViewItem Header="Tùy Chỉnh"/>
+                                    </StackPanel>
                                 </TreeView>
                             </Grid>
                         </StackPanel>
@@ -109,9 +128,9 @@
             Background="Aqua"
             DockPanel.Dock="Top" />
 
-        <view:TimKiemSachUC Margin="5" VerticalAlignment="Center" />
+        <view:TimKiemSachUC  Margin="5" VerticalAlignment="Center" Loaded="TimKiemSachUC_Loaded" ></view:TimKiemSachUC>
         <!--<view:QuanLyThongTinSachUC Visibility="Collapsed"></view:QuanLyThongTinSachUC>-->
-
+       
 
     </DockPanel>
 

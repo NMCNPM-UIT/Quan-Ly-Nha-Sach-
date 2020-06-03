@@ -11,7 +11,7 @@
              TextElement.FontSize="13"
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
-             DataContext="{StaticResource SachVM}"  
+              
              Background="{DynamicResource MaterialDesignPaper}"
              FontFamily="{DynamicResource MaterialDesignFont}"            
             
@@ -22,21 +22,24 @@
             Width="auto" 
             Margin="10"
             Background="Transparent"
+            
             Command="{Binding HienThoThongTinSachCommand}" 
-                            CommandParameter="{Binding ElementName=tbTenSach}"
+            
+                    CommandParameter="{Binding ElementName=tbTenSach}"
             >
             <Canvas DockPanel.Dock="Bottom" Height="auto" Background="Yellow" >
-                <Image 
+                <Image x:Name="imgAnhSach" 
                     Height="215"
                     Width="165"
                     Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="-165" Canvas.Top="-251" />
                 <TextBlock x:Name="tbTenSach"
-                           Text="Tên sách" 
+                           
                            HorizontalAlignment="Left" VerticalAlignment="Top"  Foreground="Black" Canvas.Left="-84" Canvas.Top="86"/>
-                <TextBlock Text="1000000đ" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="75" FontSize="12"  Foreground="Black" Canvas.Left="-72" Canvas.Top="108"/>
-                <TextBlock x:Name="txbSoLuongDaBan" Text="Đã bán: 120" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" FontSize="12" Foreground="Black" Canvas.Top="127" Canvas.Left="9"/>
+                <TextBlock x:Name="tbDonGia" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="75" FontSize="12"  Foreground="Black" Canvas.Left="-72" Canvas.Top="108"/>
+              
             </Canvas>
         </Button>
+
 
     </Grid>
 </UserControl>
