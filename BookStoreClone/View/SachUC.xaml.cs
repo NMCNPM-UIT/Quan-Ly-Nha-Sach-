@@ -34,8 +34,7 @@ namespace BookStoreClone.View
 
             //bitmap.EndInit();
             //imgAnhSach.Source = bitmap;
-            Application.from
-            imgAnhSach.Source = new BitmapImage(new Uri(app));
+            
             HienThoThongTinSachCommand = new ViewModel.RelayCommand<TextBlock>((p) => { return true; }, (p) =>
             {
                 MessageBox.Show(p.Text);
