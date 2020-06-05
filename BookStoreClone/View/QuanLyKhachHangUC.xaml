@@ -45,8 +45,8 @@
         <materialDesign:Card Grid.Row="2" Margin="5">
             <WrapPanel>
                 <Button x:Name="btnThemKH" Content="Thêm" Margin="200,5,5,5" Width="100" Click="btnThemKH_Click" />
-                <Button x:Name="btnSua" Content="Sửa" Margin="200,5,5,5" Width="100" />
-                <Button x:Name="btnLuu" Content="Lưu" Margin="200,5,5,5" Width="100"  />
+                <Button x:Name="btnSua" Content="Sửa" Margin="200,5,5,5" Width="100" Click="btnSua_Click"/>
+                <Button x:Name="btnLuu" Content="Lưu" Margin="200,5,5,5" Width="100"  Click="btnLuu_Click"/>
             </WrapPanel>
         </materialDesign:Card>
         <Grid Grid.Row="3" Margin="5">
@@ -57,7 +57,7 @@
                             <DataTemplate>
                                 
                                 <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                                        ToolTip="Xóa khách hàng"  Height="25" Width="25" Click="btnXoaKH">
+                                        ToolTip="Xóa khách hàng"  Height="25" Width="25" Click="btnXoaKH_Click">
                                     <materialDesign:PackIcon Kind="DeleteForever" Height="20" Width="20"  />
                                 </Button>
                             </DataTemplate>

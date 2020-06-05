@@ -128,7 +128,7 @@
             Background="Aqua"
             DockPanel.Dock="Top" />
 
-        <view:TimKiemSachUC  Margin="5" VerticalAlignment="Center" Loaded="TimKiemSachUC_Loaded" ></view:TimKiemSachUC>
+        <view:QuanLyKhachHangUC  Margin="5" VerticalAlignment="Center"  ></view:QuanLyKhachHangUC>
         <!--<view:QuanLyThongTinSachUC Visibility="Collapsed"></view:QuanLyThongTinSachUC>-->
        
 
