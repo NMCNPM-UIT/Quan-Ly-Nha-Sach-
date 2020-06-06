@@ -24,7 +24,7 @@
 
     <DockPanel>
         <materialDesign:Card Margin="5" DockPanel.Dock="Left">
-            <!--TabMenu-->
+            <!--  TabMenu  -->
             <Expander ExpandDirection="Right">
                 <Expander.Header>
                     <materialDesign:PackIcon Kind="Menu" />
@@ -69,23 +69,23 @@
                             <Grid x:Name="gridListBox" Background="{Binding Path=SelectedItem, ElementName=listBoxTab}">
                                 <TreeView x:Name="treeViewTinhNang">
                                     <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="AccountEdit" Margin="5,10,0,0" />
+                                        <materialDesign:PackIcon Margin="5,10,0,0" Kind="AccountEdit" />
                                         <TreeViewItem Header="Tài Khoản">
                                             <TreeViewItem Header="Thông Tin Tài Khoản" />
-                                            <TreeViewItem Header="Quản Lý Người Dùng"/>
+                                            <TreeViewItem Header="Quản Lý Người Dùng" />
                                         </TreeViewItem>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="TextBox" Margin="5,10,0,0"/>
+                                        <materialDesign:PackIcon Margin="5,10,0,0" Kind="TextBox" />
                                         <TreeViewItem Header="Quản Lý">
-                                            <TreeViewItem Header="Sách"/>
-                                            <TreeViewItem Header="Dữ Liệu Sách"/>
-                                            <TreeViewItem Header="Khách Hàng"/>
+                                            <TreeViewItem Header="Sách" />
+                                            <TreeViewItem Header="Dữ Liệu Sách" />
+                                            <TreeViewItem Header="Khách Hàng" />
                                         </TreeViewItem>
                                     </StackPanel>
 
                                     <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="CashUsdOutline" Margin="5,10,0,0" />
+                                        <materialDesign:PackIcon Margin="5,10,0,0" Kind="CashUsdOutline" />
                                         <TreeViewItem Header="Kinh Doanh">
                                             <TreeViewItem Header="Nhập Sách" />
                                             <TreeViewItem Header="Lập Hóa Đơn Bán Sách" />
@@ -94,7 +94,7 @@
                                     </StackPanel>
 
                                     <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="Magnify" Margin="5,10,0,0" />
+                                        <materialDesign:PackIcon Margin="5,10,0,0" Kind="Magnify" />
                                         <TreeViewItem Header="Tìm Kiếm">
                                             <TreeViewItem Header="Tìm Kiếm Sách" />
                                             <TreeViewItem Header="Tìm Kiếm Khách Hàng" />
@@ -102,7 +102,7 @@
                                     </StackPanel>
 
                                     <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="FileChart" Margin="5,8,0,0" />
+                                        <materialDesign:PackIcon Margin="5,8,0,0" Kind="FileChart" />
                                         <TreeViewItem Header="Báo Cáo">
                                             <TreeViewItem Header="Báo Cáo Công Nợ" />
                                             <TreeViewItem Header="Báo Cáo Tồn Kho" />
@@ -110,8 +110,8 @@
                                     </StackPanel>
 
                                     <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="Cog" Margin="5,10,0,0" />
-                                        <TreeViewItem Header="Tùy Chỉnh"/>
+                                        <materialDesign:PackIcon Margin="5,10,0,0" Kind="Cog" />
+                                        <TreeViewItem Header="Tùy Chỉnh" />
                                     </StackPanel>
                                 </TreeView>
                             </Grid>
@@ -126,11 +126,11 @@
             Height="70"
             Margin="5"
             Background="Aqua"
-            DockPanel.Dock="Top" />
+            DockPanel.Dock="Top" /> 
 
-        <view:QuanLyKhachHangUC  Margin="5" VerticalAlignment="Center"  ></view:QuanLyKhachHangUC>
+        <view:PhieuThuTienUC Margin="5" VerticalAlignment="Center" />
         <!--<view:QuanLyThongTinSachUC Visibility="Collapsed"></view:QuanLyThongTinSachUC>-->
-       
+
 
     </DockPanel>
 

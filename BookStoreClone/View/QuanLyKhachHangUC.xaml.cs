@@ -33,7 +33,6 @@ namespace BookStoreClone.View
         private void KhachHang_Loaded(object sender, RoutedEventArgs e)
         {
             dataKhachHang.ItemsSource = getCustomers();
-            XoaTrang();
             setMutable();
         }
         private void btnXoaKH_Click(object sender, RoutedEventArgs e)
@@ -67,57 +66,75 @@ namespace BookStoreClone.View
         }
         private void btnLuu_Click(object sender, RoutedEventArgs e)
         {
-            if(!IsNull())
+            KhachHang khachHang = new KhachHang();
+            if (!IsNull())
             {
-                KhachHang khachHang = new KhachHang();
-                if (string.IsNullOrEmpty(txbMaKH.Text)) 
+
+                if (string.IsNullOrEmpty(txbMaKH.Text))
                 {
                     var ans = MessageBox.Show("Bạn có chắc muốn thêm khách hàng mới không?", "Xác Nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (ans == MessageBoxResult.Yes)
                     {
-                       
                         string soDT = txbSDT.Text;
-                        if (DataProvider.Ins.DB.KhachHangs.Find(soDT) == null)
+                        var a = DataProvider.Ins.DB.KhachHangs.Where(x => x.SDT == soDT);
+                        if (a.Count() <= 0)
                         {
                             khachHang.TenKH = txbTenKH.Text;
                             khachHang.Email = txbEmail.Text;
                             khachHang.DiaChi = txbDiaChi.Text;
+                            khachHang.SDT = soDT;
                             khachHang.SoTienNo = Int32.Parse(txbTienNo.Text);
+                            DataProvider.Ins.DB.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[KhachHang] ON");
                             DataProvider.Ins.DB.KhachHangs.Add(khachHang);
                             DataProvider.Ins.DB.SaveChanges();
-
+                            DataProvider.Ins.DB.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[KhachHang] OFF");
 
                         }
                         else
-                            MessageBox.Show("Đã có tài khoản sử dụng Số Điện Thoại này!", "Cảnh Báo", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                }
-                else
-                {
-                    var an1 = MessageBox.Show("Bạn có chắc muốn sửa thông tin khách hàng" + txbTenKH.Text + "không? ", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                    if ( an1 == MessageBoxResult.Yes)
-                    {
-                        khachHang = DataProvider.Ins.DB.KhachHangs.Find(Int32.Parse(txbMaKH.Text));
-                        string soDT = txbSDT.Text;
-                        if (DataProvider.Ins.DB.KhachHangs.Find(soDT) == null)
                         {
-                            khachHang.TenKH = txbTenKH.Text;
-                            khachHang.Email = txbEmail.Text;
-                            khachHang.DiaChi = txbDiaChi.Text;
-                            khachHang.SoTienNo = Int32.Parse(txbTienNo.Text);
-                           
-                            DataProvider.Ins.DB.SaveChanges();
-                        }
-                        else
                             MessageBox.Show("Đã có tài khoản sử dụng Số Điện Thoại này!", "Cảnh Báo", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }   
-                }   
-                
-            }    
+                        }
+                       
+                    }
+
+
+                }
+            }
             else
             {
-                MessageBox.Show("Yêu cầu nhập đủ thông tin khách hàng", "Lưu Thông Tin", MessageBoxButton.OK, MessageBoxImage.Error);
+                var an1 = MessageBox.Show("Bạn có chắc muốn sửa thông tin khách hàng" + txbTenKH.Text + "không? ", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (an1 == MessageBoxResult.Yes)
+                {
+                    khachHang = DataProvider.Ins.DB.KhachHangs.Find(Int32.Parse(txbMaKH.Text));
+                    string soDT = txbSDT.Text;
+                    var a = DataProvider.Ins.DB.KhachHangs.Where(x => x.SDT == x.SDT);
+                    if (a.Count() <= 0)
+                    {
+                        khachHang.TenKH = txbTenKH.Text;
+                        khachHang.Email = txbEmail.Text;
+                        khachHang.DiaChi = txbDiaChi.Text;
+                        khachHang.SDT = soDT;
+                        khachHang.SoTienNo = Int32.Parse(txbTienNo.Text);
+                        DataProvider.Ins.DB.SaveChanges();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã có tài khoản sử dụng Số Điện Thoại này!", "Cảnh Báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }    
+                }
             }
+            dataKhachHang.ItemsSource = getCustomers();
+            XoaTrang();
+            setMutable();
+        }
+        void XoaTrang()
+        {
+            txbTienNo.Clear();
+            txbDiaChi.Clear();
+            txbEmail.Clear();
+            txbMaKH.Clear();
+            txbSDT.Clear();
+            txbTenKH.Clear();
 
         }
         bool IsNull()
@@ -133,14 +150,14 @@ namespace BookStoreClone.View
             btnLuu.IsEnabled = true;
             txbDiaChi.IsEnabled = true;
             txbEmail.IsEnabled = true;
-           
+
             txbSDT.IsEnabled = true;
             txbTenKH.IsEnabled = true;
             txbTienNo.IsEnabled = true;
         }
         void setMutable()
         {
-
+            dataKhachHang.IsEnabled = true;
             txbDiaChi.IsEnabled = false;
             txbEmail.IsEnabled = false;
             txbMaKH.IsEnabled = false;
@@ -151,14 +168,11 @@ namespace BookStoreClone.View
             btnSua.IsEnabled = true;
             btnThemKH.IsEnabled = true;
         }
-        void XoaTrang()
-        {
-            txbTienNo.Clear();
-            txbMaKH.Clear();
-            txbTenKH.Clear();
-            txbSDT.Clear();
-            txbSDT.Clear();
-            txbDiaChi.Clear();
-        }
     }
 }
+ 
+
+
+
+
+

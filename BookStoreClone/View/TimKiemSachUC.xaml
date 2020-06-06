@@ -15,14 +15,13 @@
 
     <DockPanel>
 
-        <materialDesign:Card 
-            Tag="{Binding IDSach}"
-            
-            Visibility="Collapsed"
+        <materialDesign:Card
             x:Name="pnlThongTinSach"
             Width="426"
-            DockPanel.Dock="Right">
-            <StackPanel >
+            DockPanel.Dock="Right"
+            Tag="{Binding IDSach}"
+            Visibility="Collapsed">
+            <StackPanel>
                 <Canvas Height="500" DockPanel.Dock="Top">
 
                     <Image
@@ -31,20 +30,18 @@
                         Width="350"
                         Height="345" />
                     <TextBlock
-                        Text="{Binding TenSach}"
                         Canvas.Left="42"
                         Canvas.Top="360"
                         FontSize="25"
                         Foreground="Black"
-                        RenderTransformOrigin="0.739,-0.722">
-
-                    </TextBlock>
+                        RenderTransformOrigin="0.739,-0.722"
+                        Text="{Binding TenSach}" />
                     <TextBlock
                         Canvas.Left="309"
                         Canvas.Top="467"
                         FontSize="17"
-                        Text="{Binding SoLuongTon}"
-                        Foreground="Black">
+                        Foreground="Black"
+                        Text="{Binding SoLuongTon}">
                         Kho: 200 cuốn
                     </TextBlock>
                     <TextBlock
@@ -52,10 +49,8 @@
                         Canvas.Top="430"
                         FontSize="25"
                         Foreground="Black"
-                        Text="{Binding GiaSach}"
-                        RenderTransformOrigin="0.365,1.083">
-
-                    </TextBlock>
+                        RenderTransformOrigin="0.365,1.083"
+                        Text="{Binding GiaSach}" />
                     <Button
                         Canvas.Left="10"
                         Canvas.Top="10"
@@ -72,19 +67,16 @@
                     </Button>
                 </Canvas>
                 <WrapPanel
-                    
-                    DockPanel.Dock="Top"
                     Canvas.Left="46"
                     Canvas.Top="486"
                     Width="350"
-                    Margin="10">
+                    Margin="10"
+                    DockPanel.Dock="Top">
                     <TextBlock
                         FontSize="17"
                         Foreground="Black"
                         Text="{Binding TheLoai}"
-                        TextWrapping="Wrap">
-
-                    </TextBlock>
+                        TextWrapping="Wrap" />
                 </WrapPanel>
                 <Grid DockPanel.Dock="Top">
                     <Grid.ColumnDefinitions>
@@ -92,26 +84,22 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock
-                        Text="{Binding TacGia}"
                         Grid.Column="0"
                         Margin="38,0,10,0"
                         FontSize="17"
                         Foreground="Black"
-                        TextWrapping="Wrap">
-
-                    </TextBlock>
+                        Text="{Binding TacGia}"
+                        TextWrapping="Wrap" />
 
                     <TextBlock
-                        Text="{Binding NhaXB}"
                         Grid.Column="1"
                         Margin="20,0,10,0"
                         FontSize="17"
                         Foreground="Black"
-                        TextWrapping="Wrap">
-
-                    </TextBlock>
+                        Text="{Binding NhaXB}"
+                        TextWrapping="Wrap" />
                 </Grid>
-                <DockPanel >
+                <DockPanel>
 
                     <TextBlock
                         Margin="0,10,0,0"
@@ -121,12 +109,10 @@
                         ----------Mô tả------------
                     </TextBlock>
                     <TextBlock
-                       
                         Margin="38,10,0,10"
                         FontSize="15"
                         Text="{Binding MoTaSach}"
-                        TextWrapping="Wrap">
-                    </TextBlock>
+                        TextWrapping="Wrap" />
 
 
                 </DockPanel>
@@ -216,11 +202,10 @@
                                 VerticalAlignment="Center"
                                 TextChanged="txtSoTrangtxtChanged" />
                             <TextBlock
-                              x:Name="txbMaxTrang"
+                                x:Name="txbMaxTrang"
                                 Grid.Column="1"
                                 Width="50"
-                                VerticalAlignment="Center"
-                                 />
+                                VerticalAlignment="Center" />
                         </Grid>
                         <Button Margin="10,5,10,5">
                             <materialDesign:PackIcon Kind="ChevronRight" />
@@ -233,7 +218,7 @@
             </DockPanel>
 
 
-            <materialDesign:Card Margin="0,0,5,0" DockPanel.Dock="Top" >
+            <materialDesign:Card Margin="0,0,5,0" DockPanel.Dock="Top">
                 <ScrollViewer>
                     <WrapPanel x:Name="pnlHienThiSach" HorizontalAlignment="Center" />
                 </ScrollViewer>
