@@ -13,8 +13,7 @@
              TextOptions.TextRenderingMode="Auto"
               
              Background="{DynamicResource MaterialDesignPaper}"
-             FontFamily="{DynamicResource MaterialDesignFont}"            
-            
+             FontFamily="{DynamicResource MaterialDesignFont}"                    
              d:DesignHeight="320" d:DesignWidth="200">
     <Grid>
         <Button
@@ -29,14 +28,14 @@
             >
             <Canvas DockPanel.Dock="Bottom" Height="auto" Background="Yellow" >
                 <Image x:Name="imgAnhSach" 
-                    Height="215"
+                    Height="219"
                     Width="165"
-                    Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="-165" Canvas.Top="-251" />
+                    Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="-80" Canvas.Top="-160" />
                 <TextBlock x:Name="tbTenSach"
                            
                            HorizontalAlignment="Left" VerticalAlignment="Top"  Foreground="Black" Canvas.Left="-84" Canvas.Top="86"/>
                 <TextBlock x:Name="tbDonGia" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="75" FontSize="12"  Foreground="Black" Canvas.Left="-72" Canvas.Top="108"/>
-              
+
             </Canvas>
         </Button>
 

@@ -1,50 +1,73 @@
-﻿<Window x:Class="BookStoreClone.View.Login"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        xmlns:local="clr-namespace:BookStoreClone.View"
-        mc:Ignorable="d"
-        WindowStyle="None"
-        ResizeMode="NoResize"
-        DataContext="{StaticResource LoginVM}"  
-        Title="Login" 
-        Height="600"
-        Width="500"
-        Name="loginWindow"
-        WindowStartupLocation="CenterScreen"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" >
-    <Grid Background="#ffe082" >
+﻿<Window
+    x:Class="BookStoreClone.View.Login"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:BookStoreClone.View"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Name="loginWindow"
+    Title="Login"
+    Width="500"
+    Height="600"
+    DataContext="{StaticResource LoginVM}"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Grid Background="#ffe082">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <materialDesign:ColorZone Mode="PrimaryMid"  Foreground="White"  >
+            <materialDesign:ColorZone Foreground="White" Mode="PrimaryMid">
                 <DockPanel>
-                    <StackPanel Orientation="Horizontal" Height="62" DockPanel.Dock="Left">
+                    <StackPanel
+                        Height="62"
+                        DockPanel.Dock="Left"
+                        Orientation="Horizontal">
                         <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
-                        <TextBlock VerticalAlignment="Center" Margin="16 0 0 0"></TextBlock>
+                        <TextBlock Margin="16,0,0,0" VerticalAlignment="Center" />
                     </StackPanel>
-                    <DockPanel  DockPanel.Dock="Right" HorizontalAlignment="Right" >
-                        <StackPanel  ClipToBounds="False" Width="196" Height="62"  Orientation="Horizontal" DockPanel.Dock="Right">
+                    <DockPanel HorizontalAlignment="Right" DockPanel.Dock="Right">
+                        <StackPanel
+                            Width="196"
+                            Height="62"
+                            ClipToBounds="False"
+                            DockPanel.Dock="Right"
+                            Orientation="Horizontal">
                             <StackPanel.Resources>
                                 <Style TargetType="Button">
-                                    <Setter Property="Margin" Value="2"></Setter>
-                                    <Setter Property="Width" Value="60"></Setter>
-                                    <Setter Property="Height" Value="30"></Setter>
+                                    <Setter Property="Margin" Value="2" />
+                                    <Setter Property="Width" Value="60" />
+                                    <Setter Property="Height" Value="30" />
                                 </Style>
                             </StackPanel.Resources>
-                            <Button x:Name="btnMinimize" ToolTip="Thu nhỏ màn hình"  Background="#fdd835" Click="btnMinimize_Click">
+                            <Button
+                                x:Name="btnMinimize"
+                                Background="#fdd835"
+                                Click="btnMinimize_Click"
+                                ToolTip="Thu nhỏ màn hình">
                                 <materialDesign:PackIcon Kind="WindowMinimize" />
                             </Button>
-                            <Button x:Name="btnMaximize" Background="#aeea00" ToolTip="Phóng to màn hình" Click="btnMaximize_Click" IsEnabled="False">
+                            <Button
+                                x:Name="btnMaximize"
+                                Background="#aeea00"
+                                Click="btnMaximize_Click"
+                                IsEnabled="False"
+                                ToolTip="Phóng to màn hình">
                                 <materialDesign:PackIcon Kind="WindowMaximize" />
                             </Button>
-                            <Button x:Name="btnDong" ToolTip="Đóng" ToolBar.OverflowMode="AsNeeded" Background="OrangeRed" Click="btnDong_Click">
+                            <Button
+                                x:Name="btnDong"
+                                Background="OrangeRed"
+                                Click="btnDong_Click"
+                                ToolBar.OverflowMode="AsNeeded"
+                                ToolTip="Đóng">
                                 <materialDesign:PackIcon Kind="CloseThick" />
                             </Button>
                         </StackPanel>
@@ -54,29 +77,45 @@
             </materialDesign:ColorZone>
 
         </Grid>
-        <Grid Grid.Row="1"/>
-        <materialDesign:Card HorizontalAlignment="Center"  VerticalAlignment="Center" Width="395" Grid.Row="2" Height="249" Margin="50,156,55,133">
-            <Grid Margin="10,10,0,5" >
+        <Grid Grid.Row="1" />
+        <materialDesign:Card
+            Grid.Row="2"
+            Width="395"
+            Height="249"
+            Margin="50,156,55,133"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Grid Margin="10,10,0,5">
                 <Grid.Resources>
                     <Style TargetType="Grid">
-                        <Setter Property="Margin" Value="10 13 15 5" ></Setter>
+                        <Setter Property="Margin" Value="10,13,15,5" />
 
                     </Style>
                 </Grid.Resources>
-                <Grid.RowDefinitions >
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="289*"/>
-                        <ColumnDefinition Width="61*"/>
+                        <ColumnDefinition Width="289*" />
+                        <ColumnDefinition Width="61*" />
                     </Grid.ColumnDefinitions>
-                    <TextBox materialDesign:HintAssist.Hint="Tên Đăng Nhập"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.ColumnSpan="2" Text="{Binding UserName}" />
+                    <TextBox
+                        Grid.ColumnSpan="2"
+                        VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="Tên Đăng Nhập"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Text="{Binding UserName}" />
                 </Grid>
                 <Grid Grid.Row="1">
-                    <PasswordBox x:Name="FloatingPasswordBox" materialDesign:HintAssist.Hint=" Mật Khẩu" materialDesign:HintAssist.Foreground="Green" materialDesign:TextFieldAssist.UnderlineBrush="Green" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" >
+                    <PasswordBox
+                        x:Name="FloatingPasswordBox"
+                        materialDesign:HintAssist.Foreground="Green"
+                        materialDesign:HintAssist.Hint=" Mật Khẩu"
+                        materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                        Style="{StaticResource MaterialDesignFloatingHintPasswordBox}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="PasswordChanged">
                                 <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" CommandParameter="{Binding ElementName=FloatingPasswordBox}" />
@@ -86,17 +125,35 @@
                 </Grid>
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="180*"></ColumnDefinition>
-                        <ColumnDefinition Width="109*"></ColumnDefinition>
-                        <ColumnDefinition Width="71*"/>
+                        <ColumnDefinition Width="180*" />
+                        <ColumnDefinition Width="109*" />
+                        <ColumnDefinition Width="71*" />
                     </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0" >
-                        <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="50"  materialDesign:ButtonAssist.CornerRadius="5"  ToolTip="MaterialDesignRaisedLightButton with Round Corners"  Width="110"  Name="btnDangNhap" Margin="20,0,20,-9"  Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=loginWindow}"  IsDefault="True">
-                            <TextBlock Text="Đăng nhập" ></TextBlock>
+                    <Grid Grid.Column="0">
+                        <Button
+                            Name="btnDangNhap"
+                            Width="110"
+                            Height="50"
+                            Margin="20,0,20,-9"
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                            Command="{Binding LoginCommand}"
+                            CommandParameter="{Binding ElementName=loginWindow}"
+                            IsDefault="True"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            ToolTip="MaterialDesignRaisedLightButton with Round Corners">
+                            <TextBlock Text="Đăng nhập" />
                         </Button>
                     </Grid>
                     <Grid Grid.Column="1" Grid.ColumnSpan="2">
-                        <Button IsDefault="True" Style="{StaticResource MaterialDesignRaisedAccentButton}"  materialDesign:ButtonAssist.CornerRadius="5"  ToolTip="MaterialDesignRaisedLightButton with Round Corners" Height="50" Width="110" Name="btnThoat" Margin="20,0,20,-9" >
+                        <Button
+                            Name="btnThoat"
+                            Width="110"
+                            Height="50"
+                            Margin="20,0,20,-9"
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                            IsDefault="True"
+                            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                            ToolTip="MaterialDesignRaisedLightButton with Round Corners">
                             <TextBlock Text="Thoát" />
                         </Button>
                     </Grid>
@@ -104,6 +161,10 @@
                 </Grid>
             </Grid>
         </materialDesign:Card>
-        <Image Margin="182,20,183,405" Source="/BookStoreClone;component/BookStore.png" Stretch="Fill" Grid.Row="2"/>
+        <Image
+            Grid.Row="2"
+            Margin="182,20,183,405"
+            Source="/BookStoreClone;component/BookStore.png"
+            Stretch="Fill" />
     </Grid>
 </Window>

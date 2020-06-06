@@ -13,10 +13,10 @@ namespace BookStoreClone.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLNSEntities : DbContext
+    public partial class QLNSEntities1 : DbContext
     {
-        public QLNSEntities()
-            : base("name=QLNSEntities")
+        public QLNSEntities1()
+            : base("name=QLNSEntities1")
         {
         }
     

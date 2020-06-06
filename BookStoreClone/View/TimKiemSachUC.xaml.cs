@@ -81,6 +81,10 @@ namespace BookStoreClone.View
 
             TenSach = query.First().TenSach;
             GiaSach = query.First().DonGia.ToString();
+            MoTaSach = query.First().MoTa;
+       
+                    
+
 
 
             
@@ -139,7 +143,12 @@ namespace BookStoreClone.View
             {
                 for (int i = n * 25; i < n * 25 + 25 && i < a.Count; i++)
                 {
-                    SachUC sachUC = new SachUC(a[i].TenSach, a[i].DonGia.ToString(),a[i].AnhBia);
+                    string source = "";
+                   if(a[i].AnhBia==null || a[i].AnhBia == "")
+                     source = "no_image.png";
+                    else
+                      source = a[i].AnhBia;
+                    SachUC sachUC = new SachUC(a[i].TenSach, a[i].DonGia.ToString(),source);
                     sachUC.Height = 320;
                     sachUC.Width = 200;
                     this.pnlHienThiSach.Children.Add(sachUC);

@@ -144,6 +144,7 @@
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\QuanLyKhachHangViewModel.cs" />
     <Compile Include="ViewModel\SachViewModel.cs" />
     <Compile Include="ViewModel\TimKiemSachViewModel.cs" />
     <Compile Include="View\PhieuBanHangUC.xaml.cs">
@@ -260,7 +261,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Model\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\img\BookStore.png" />
   </ItemGroup>
@@ -271,17 +283,45 @@
     <Resource Include="mountains.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\img\KhuVuonNgonTu.jpg" />
+    <Resource Include="Resources\img\KVH_TronBo.png" />
+    <Resource Include="Resources\img\MaSoi.jpg" />
+    <Resource Include="Resources\img\Narnia_TronBo.png" />
+    <Resource Include="Resources\img\NauAnBangCaTraiTim.png" />
+    <Resource Include="Resources\img\no_image.png" />
+    <Resource Include="Resources\img\OcDaoMuiHuong.jpg" />
+    <Resource Include="Resources\img\PhaoDaiSo.jpg" />
+    <Resource Include="Resources\img\SAO_Aincrad1.jpg" />
+    <Resource Include="Resources\img\SAO_Aincrad2.jpg" />
+    <Resource Include="Resources\img\SherlockHolmes_TronBo.png" />
+    <Resource Include="Resources\img\TaiLieuLuyenThiNangLucNhatNguN5_CD.jpg" />
+    <Resource Include="Resources\img\ThienThanVaAcQuy.jpg" />
+    <Resource Include="Resources\img\TruyenKieu.jpg" />
+    <Resource Include="Resources\img\YeuAnhHonCaTuThan.jpg" />
+    <Resource Include="Resources\img\Doraemon_ChuKhungLongCuaNobita.jpg" />
+    <Resource Include="Resources\img\Doraemon_NghinLeMotDem.jpg" />
+    <Resource Include="Resources\img\Doraemon_NguoiKhongLoXanh.jpg" />
+    <Resource Include="Resources\img\Doraemon_PhieuLuuVaoXuQuy.jpg" />
+    <Resource Include="Resources\img\Doraemon_VuongQuocTrenMay.jpg" />
+    <Resource Include="Resources\img\Doraemon_XuSoNguoiCa.jpg" />
+    <Resource Include="Resources\img\HoaNguc.jpg" />
+    <Resource Include="Resources\img\HoaThienCot_TronBo.png" />
+    <Resource Include="Resources\img\5cm_tren_giay.jpg" />
+    <Resource Include="Resources\img\Ame_Yuki_wolf_children.png" />
+    <Resource Include="Resources\img\AnhChangHobbit.jpg" />
+    <Resource Include="Resources\img\Another.png" />
+    <Resource Include="Resources\img\BoSachGiaoKhoaLop9.png" />
+    <Resource Include="Resources\img\BoVoBaiTapLop9.png" />
+    <Resource Include="Resources\img\CoNangQuanTri.jpg" />
+    <Resource Include="Resources\img\CTNCN_DoanHoNhan.jpg" />
+    <Resource Include="Resources\img\CTNCN_HaiToaThap.jpg" />
+    <Resource Include="Resources\img\CTNCN_NhaVuaTroVe.jpg" />
+    <Resource Include="Resources\img\DarrenShan.png" />
+    <Resource Include="Resources\img\DaVinciCode.jpg" />
+    <Resource Include="Resources\img\DeceptionPoint.jpg" />
+    <Resource Include="Resources\img\BieuTuongThatTruyen.jpg" />
+    <Resource Include="Resources\img\BaiHocYeuCuaTieuMaVuong.jpg" />
     <Resource Include="1.jpg" />
-    <Content Include="Model\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

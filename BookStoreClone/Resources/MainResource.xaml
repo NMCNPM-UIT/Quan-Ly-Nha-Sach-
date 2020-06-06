@@ -7,4 +7,5 @@
     <viewmodel:TimKiemSachViewModel x:Key="TimKiemVM" />
     <viewmodel:SachViewModel x:Key="SachVM" />
     <viewmodel:LoginViewModel x:Key="LoginVM" />
+    <!--<viewmodel:LoginViewModel x:Key="QuanLyKhachHangVM" />-->
 </ResourceDictionary>
