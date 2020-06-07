@@ -147,8 +147,8 @@
     <Compile Include="ViewModel\QuanLyKhachHangViewModel.cs" />
     <Compile Include="ViewModel\SachViewModel.cs" />
     <Compile Include="ViewModel\TimKiemSachViewModel.cs" />
-    <Compile Include="View\PhieuBanHangUC.xaml.cs">
-      <DependentUpon>PhieuBanHangUC.xaml</DependentUpon>
+    <Compile Include="View\HoaDonUC.xaml.cs">
+      <DependentUpon>HoaDonUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PhieuNhapUC.xaml.cs">
       <DependentUpon>PhieuNhapUC.xaml</DependentUpon>
@@ -175,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\HoaDonUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -194,10 +198,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\PhieuBanHangUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\PhieuNhapUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
