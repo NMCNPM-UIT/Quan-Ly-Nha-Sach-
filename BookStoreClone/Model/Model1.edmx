@@ -865,7 +865,7 @@
           <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
           <End Role="TheLoai" Type="Self.TheLoai" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="QLNSEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QLNSEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BaoCaoCongNoes" EntityType="Self.BaoCaoCongNo" />
           <EntitySet Name="BaoCaoTons" EntityType="Self.BaoCaoTon" />
           <EntitySet Name="CTBaoCaoCongNoes" EntityType="Self.CTBaoCaoCongNo" />
@@ -947,7 +947,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QLNSModelStoreContainer" CdmEntityContainer="QLNSEntities1">
+        <EntityContainerMapping StorageEntityContainer="QLNSModelStoreContainer" CdmEntityContainer="QLNSEntities">
           <EntitySetMapping Name="BaoCaoCongNoes">
             <EntityTypeMapping TypeName="QLNSModel.BaoCaoCongNo">
               <MappingFragment StoreEntitySet="BaoCaoCongNo">

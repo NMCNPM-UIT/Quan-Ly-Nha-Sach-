@@ -22,10 +22,10 @@ namespace BookStoreClone.Model
                 _ins = value;
             }
         }
-        public QLNSEntities1 DB { get; set; }
+        public QLNSEntities DB { get; set; }
         private DataProvider ()
         {
-            DB = new QLNSEntities1();
+            DB = new QLNSEntities();
         }
        
     }
