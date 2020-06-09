@@ -6,10 +6,17 @@
     xmlns:local="clr-namespace:BookStoreClone.View"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     d:DesignHeight="730"
     d:DesignWidth="1200"
+    Name="hoaDonUC"
     Loaded="Load_HD"
     mc:Ignorable="d">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedThongTinCommand}" CommandParameter="{Binding ElementName=hoaDonUC}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <DockPanel>
         <DockPanel DockPanel.Dock="Top">
             <TextBlock

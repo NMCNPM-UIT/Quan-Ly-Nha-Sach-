@@ -37,7 +37,7 @@ namespace BookStoreClone.View
 
         //public string DonGiaBan { get => _donGiaBan; set { _donGiaBan = value; OnPropertyChanged("DonGiaBan"); } }
         private ObservableCollection<CTHD> _listCTHD;
-        private HoaDon _hoaDon;
+
         public ObservableCollection<CTHD> ListCTHD { get => _listCTHD; set => _listCTHD = value; }
 
         public HoaDonUC()
