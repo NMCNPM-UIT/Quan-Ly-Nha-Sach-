@@ -10,7 +10,7 @@
     d:DesignWidth="1200"
     Loaded="Load_HD"
     mc:Ignorable="d">
-    <DockPanel>
+    <DockPanel Background="AliceBlue">
         <DockPanel DockPanel.Dock="Top">
             <TextBlock
                 Margin="8,8,0,0"
