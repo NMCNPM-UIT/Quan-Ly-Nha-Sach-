@@ -126,9 +126,9 @@
             Height="70"
             Margin="5"
             Background="Aqua"
-            DockPanel.Dock="Top" /> 
+            DockPanel.Dock="Top" />
 
-        <view:PhieuThuTienUC Margin="5" VerticalAlignment="Center" />
+        <view:HoaDonUC Margin="5" VerticalAlignment="Center" />
         <!--<view:QuanLyThongTinSachUC Visibility="Collapsed"></view:QuanLyThongTinSachUC>-->
 
 
