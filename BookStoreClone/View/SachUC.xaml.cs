@@ -31,14 +31,7 @@ namespace BookStoreClone.View
             string source = "/Resources/img/" + img;
             Uri resourceUri = new Uri(source, UriKind.Relative);
             imgAnhSach.Source = new BitmapImage(resourceUri);
-            //BitmapImage bitmap = new BitmapImage();
-            //bitmap.BeginInit();
-            //bitmap.UriSource= new  Uri(@"/BookStoreClone;component/1.jpg");
-
-            //bitmap.EndInit();
-            //imgAnhSach.Source = bitmap;
-          
-            //imgAnhSach.Source = new BitmapImage(new Uri(app));
+            
 
             HienThoThongTinSachCommand = new ViewModel.RelayCommand<TextBlock>((p) => { return true; }, (p) =>
             {
@@ -54,7 +47,7 @@ namespace BookStoreClone.View
                     }
 
             }
-              );
+            );
         }
    
     }
