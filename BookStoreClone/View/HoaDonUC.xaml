@@ -10,7 +10,7 @@
     d:DesignHeight="730"
     d:DesignWidth="1200"
     Name="hoaDonUC"
-    Loaded="Load_HD"
+    DataContext="{StaticResource HoaDonVM}"
     mc:Ignorable="d">
     <DockPanel>
         <DockPanel DockPanel.Dock="Top">
@@ -28,14 +28,9 @@
                 Width="297"
                 Margin="30,4"
                 materialDesign:HintAssist.Hint="Chọn Khách Hàng"
-                DisplayMemberPath="TenKH"
                 DockPanel.Dock="Left"
-                ItemsSource="{Binding}" >
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="Loaded">
-                        <i:InvokeCommandAction Command="{Binding LoadedKHCommand}" CommandParameter="{Binding ElementName=cbKH}" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
+                DisplayMemberPath="TenKH"
+                ItemsSource="{Binding ListKH,Mode=OneWay}">
             </ComboBox>
             <TextBox
                 x:Name="txbSDT"
@@ -94,13 +89,10 @@
                         Height="27"
                         Margin="20,10,20,0"
                         materialDesign:HintAssist.Hint="Chọn Sách"
-                        DisplayMemberPath="TenSach"
                         FontSize="14"
-                        >
+                        DisplayMemberPath="TenSach"
+                        ItemsSource="{Binding ListSach,Mode=TwoWay}">
                         <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Loaded">
-                                <i:InvokeCommandAction Command="{Binding LoadedSachCommand}" CommandParameter="{Binding ElementName=cbChonSach}" />
-                            </i:EventTrigger>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <i:InvokeCommandAction Command="{Binding SelectionChangedSachCommand}" CommandParameter="{Binding ElementName=cbChonSach}" />
                             </i:EventTrigger>
@@ -129,7 +121,7 @@
                         materialDesign:HintAssist.Hint="Thể Loại"
                         FontSize="14"
                         IsEnabled="False"
-                        Text="{Binding SelectedItem.TheLoai.TenTL, ElementName=cbChonSach}" />
+                        Text="{Binding TheLoaiSach}" />
                     <TextBox
                         x:Name="txbTacGia"
                         Width="259"
@@ -137,7 +129,7 @@
                         materialDesign:HintAssist.Hint="Tác Giả"
                         FontSize="14"
                         IsEnabled="False"
-                        Text="{Binding SelectedItem.TacGia.TenTG, ElementName=cbChonSach}" />
+                        Text="{Binding TacGiaSach}" />
                 </StackPanel>
                 <StackPanel
                     Grid.Row="2"
@@ -151,7 +143,7 @@
                         materialDesign:HintAssist.Hint="Đơn Giá Bán"
                         FontSize="14"
                         IsEnabled="false"
-                        Text="{Binding DonGiaBan}" />
+                        Text="{Binding DonGiaBan, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
                 <StackPanel Grid.Row="0" Grid.Column="2">
                     <TextBox
@@ -171,7 +163,7 @@
                     <Button
                         Width="150"
                         materialDesign:RippleAssist.Feedback="#DD000000"
-                        Click="btnThem_Click"
+                       
                         RenderTransformOrigin="0.513,0.875"
                         Style="{StaticResource MaterialDesignRaisedAccentButton}"
                         ToolTip="Resource name: MaterialDesignRaisedAccentButton">
@@ -186,7 +178,9 @@
                     Margin="0,10,0,0"
                     AutoGenerateColumns="False"
                     IsReadOnly="True"
-                    ItemsSource="{Binding}">
+                    ItemsSource="{Binding ListCTHD}"
+                   >
+                    
                     <DataGrid.Columns>
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
@@ -195,7 +189,7 @@
                                     <Button
                                         Width="25"
                                         Height="25"
-                                        Click="btnXoa_Click"
+                                       
                                         Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                                         ToolTip="Xóa Phiếu">
                                         <materialDesign:PackIcon
