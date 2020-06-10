@@ -12,11 +12,6 @@
     Name="hoaDonUC"
     Loaded="Load_HD"
     mc:Ignorable="d">
-    <i:Interaction.Triggers>
-        <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadedThongTinCommand}" CommandParameter="{Binding ElementName=hoaDonUC}" />
-        </i:EventTrigger>
-    </i:Interaction.Triggers>
     <DockPanel>
         <DockPanel DockPanel.Dock="Top">
             <TextBlock
@@ -27,6 +22,7 @@
                 FontSize="14"
                 Text="Thông tin khách hàng:"
                 TextWrapping="Wrap" />
+
             <ComboBox
                 x:Name="cbKH"
                 Width="297"
@@ -34,7 +30,13 @@
                 materialDesign:HintAssist.Hint="Chọn Khách Hàng"
                 DisplayMemberPath="TenKH"
                 DockPanel.Dock="Left"
-                ItemsSource="{Binding}" />
+                ItemsSource="{Binding}" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LoadedKHCommand}" CommandParameter="{Binding ElementName=cbKH}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
             <TextBox
                 x:Name="txbSDT"
                 Grid.Row="1"
@@ -94,7 +96,16 @@
                         materialDesign:HintAssist.Hint="Chọn Sách"
                         DisplayMemberPath="TenSach"
                         FontSize="14"
-                        SelectionChanged="cbChonSach_SelectionChanged" />
+                        >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Loaded">
+                                <i:InvokeCommandAction Command="{Binding LoadedSachCommand}" CommandParameter="{Binding ElementName=cbChonSach}" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding SelectionChangedSachCommand}" CommandParameter="{Binding ElementName=cbChonSach}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
                     <TextBox
                         x:Name="txbSoLuongTon"
                         Width="264"
