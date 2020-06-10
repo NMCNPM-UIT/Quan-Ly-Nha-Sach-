@@ -122,10 +122,78 @@
         </materialDesign:Card>
 
         <Grid
-            Height="70"
+            Height="50"
             Margin="5"
             Background="Aqua"
-            DockPanel.Dock="Top" />
+            DockPanel.Dock="Top">
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button
+                    RenderTransformOrigin="-4.018,0.113"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                    ToolTip="MaterialDesignFloatingActionMiniDarkButton">
+                    <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        Kind="Alarm" />
+                </Button>
+                <Button
+                    Width="60"
+                    Height="40"
+                    Margin="5"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Command="{Binding Minimize}"
+                    CommandParameter="{Binding ElementName=mainWindow}">
+                    <materialDesign:PackIcon
+                        Width="22"
+                        Height="22"
+                        VerticalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        Foreground="Red"
+                        Kind="WindowMinimize" />
+                </Button>
+                <Button
+                    Width="60"
+                    Height="40"
+                    Margin="5"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Command="{Binding Maximize}"
+                    CommandParameter="{Binding ElementName=mainWindow}">
+
+                    <materialDesign:PackIcon
+                        Width="22"
+                        Height="22"
+                        VerticalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        Foreground="Red"
+                        Kind="{Binding Maximize_Icon}" />
+                </Button>
+                <Button
+                    Width="60"
+                    Height="40"
+                    Margin="5"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Command="{Binding CloseApp}"
+                    CommandParameter="{Binding ElementName=mainWindow}">
+                    <materialDesign:PackIcon
+                        Width="22"
+                        Height="22"
+                        VerticalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        Foreground="Red"
+                        Kind="Close" />
+                </Button>
+
+
+            </StackPanel>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <i:InvokeCommandAction Command="{Binding   MouseMoveWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Grid>
 
         <view:HoaDonUC Margin="5" VerticalAlignment="Center" />
         <!--<view:QuanLyThongTinSachUC Visibility="Collapsed"></view:QuanLyThongTinSachUC>-->
