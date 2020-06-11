@@ -124,7 +124,7 @@
         <Grid
             Height="50"
             Margin="5"
-            Background="Aqua"
+            Background="#FF408765"
             DockPanel.Dock="Top">
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <Button
@@ -190,12 +190,12 @@
             </StackPanel>
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonDown">
-                    <i:InvokeCommandAction Command="{Binding   MouseMoveWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}" />
+                    <i:InvokeCommandAction Command="{Binding MouseMoveWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Grid>
 
-        <view:HoaDonUC Margin="5" VerticalAlignment="Center" />
+        <view:QuanLyHoaDonUC Margin="5" VerticalAlignment="Center" />
         <!--<view:QuanLyThongTinSachUC Visibility="Collapsed"></view:QuanLyThongTinSachUC>-->
 
 

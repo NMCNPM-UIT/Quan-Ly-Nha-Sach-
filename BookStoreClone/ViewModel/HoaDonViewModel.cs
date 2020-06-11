@@ -19,6 +19,7 @@ namespace BookStoreClone.ViewModel
         public ICommand SelectionChangedSachCommand { get; set; }
         public ICommand XoaCTHDCommand { get; set; }
         public ICommand ThemCTHDCommand { get; set; }
+        public ICommand LuuHDCommand { get; set; }
         private ObservableCollection<CTHD> _listCTHD;
         private string _tacGiaSach;
         private string _theLoaiSach;
@@ -26,6 +27,8 @@ namespace BookStoreClone.ViewModel
         private int _thanhTien;
         private int _soLuongMua;
         private int _tongHoaDon;
+        private int _thanhToan;
+        private int _conLai;
         private KhachHang _khachHangSelected;
         private Sach _sachSelected;
         private ObservableCollection<KhachHang> _listKH;
@@ -45,6 +48,9 @@ namespace BookStoreClone.ViewModel
         public int ThanhTien { get => _thanhTien; set {_thanhTien = value; OnPropertyChanged(); } }
         
         public int TongHoaDon { get => _tongHoaDon; set {_tongHoaDon = value; OnPropertyChanged(); } }
+
+        public int ConLai { get => _conLai; set { _conLai = value; OnPropertyChanged(); }  }
+        public int ThanhToan { get => _thanhToan; set { _thanhToan = value; OnPropertyChanged(); } }
 
         public HoaDonViewModel()
         {
@@ -123,6 +129,7 @@ namespace BookStoreClone.ViewModel
                     MessageBox.Show("Bạn phải chọn khách hàng ", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
 
             });
+            //Xóa CTHD trong DataGridview
             XoaCTHDCommand = new RelayCommand<DataGrid>((p) => { return true; }, (p) =>
             {
 
@@ -132,6 +139,17 @@ namespace BookStoreClone.ViewModel
                 if (a == MessageBoxResult.Yes)
                 {
                     ListCTHD.Remove(i);
+                }
+            });
+            LuuHDCommand = new RelayCommand<UserControl>((p) => { return true; }, (p) =>
+            {
+                if(ThanhToan !=0 )
+                {
+                    ConLai = TongHoaDon - ThanhToan;
+                }
+                else
+                {
+                    MessageBox.Show("Bạn chưa nhập số tiền thanh toán!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             });
         }
