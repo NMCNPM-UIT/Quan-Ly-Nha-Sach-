@@ -3,9 +3,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:BookStoreClone.Resources"
     xmlns:viewmodel="clr-namespace:BookStoreClone.ViewModel">
+
     <viewmodel:MainViewModel x:Key="MainVM" />
     <viewmodel:TimKiemSachViewModel x:Key="TimKiemVM" />
     <viewmodel:SachViewModel x:Key="SachVM" />
     <viewmodel:LoginViewModel x:Key="LoginVM" />
-    <!--<viewmodel:LoginViewModel x:Key="QuanLyKhachHangVM" />-->
+    <viewmodel:HoaDonViewModel x:Key="HoaDonVM" />
+   
+
+
 </ResourceDictionary>

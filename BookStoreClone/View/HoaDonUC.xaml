@@ -6,9 +6,11 @@
     xmlns:local="clr-namespace:BookStoreClone.View"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     d:DesignHeight="730"
     d:DesignWidth="1200"
-    Loaded="Load_HD"
+    Name="hoaDonUC"
+    DataContext="{StaticResource HoaDonVM}"
     mc:Ignorable="d">
     <DockPanel Background="AliceBlue">
         <DockPanel DockPanel.Dock="Top">
@@ -20,14 +22,17 @@
                 FontSize="14"
                 Text="Thông tin khách hàng:"
                 TextWrapping="Wrap" />
+
             <ComboBox
                 x:Name="cbKH"
                 Width="297"
                 Margin="30,4"
                 materialDesign:HintAssist.Hint="Chọn Khách Hàng"
-                DisplayMemberPath="TenKH"
                 DockPanel.Dock="Left"
-                ItemsSource="{Binding}" />
+                DisplayMemberPath="TenKH"
+                SelectedItem="{Binding KhachHangSelected,Mode=OneWayToSource}"
+                ItemsSource="{Binding ListKH,Mode=OneWay}">
+            </ComboBox>
             <TextBox
                 x:Name="txbSDT"
                 Grid.Row="1"
@@ -82,12 +87,19 @@
                     <ComboBox
                         x:Name="cbChonSach"
                         Width="295"
-                        Height="27"
-                        Margin="20,10,20,0"
+                        Height="37"
+                        Margin="20,0"
+                        SelectedItem="{Binding SachSelected,Mode=OneWayToSource}"
                         materialDesign:HintAssist.Hint="Chọn Sách"
-                        DisplayMemberPath="TenSach"
                         FontSize="14"
-                        SelectionChanged="cbChonSach_SelectionChanged" />
+                        DisplayMemberPath="TenSach"
+                        ItemsSource="{Binding ListSach,Mode=TwoWay}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding SelectionChangedSachCommand}" CommandParameter="{Binding ElementName=cbChonSach}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
                     <TextBox
                         x:Name="txbSoLuongTon"
                         Width="264"
@@ -105,21 +117,23 @@
                     Orientation="Horizontal">
                     <TextBox
                         x:Name="txbTheLoai"
-                        Width="295"
-                        Height="28"
+                        Width="260"
+                        Height="Auto"
                         Margin="20,10,20,0"
                         materialDesign:HintAssist.Hint="Thể Loại"
                         FontSize="14"
+                        TextWrapping="Wrap"
                         IsEnabled="False"
-                        Text="{Binding SelectedItem.TheLoai.TenTL, ElementName=cbChonSach}" />
+                        Text="{Binding TheLoaiSach}" />
                     <TextBox
+                        
                         x:Name="txbTacGia"
-                        Width="259"
-                        Margin="20,0,0,0"
+                        TextWrapping="Wrap"
+                        Margin="20,0"
                         materialDesign:HintAssist.Hint="Tác Giả"
                         FontSize="14"
                         IsEnabled="False"
-                        Text="{Binding SelectedItem.TacGia.TenTG, ElementName=cbChonSach}" />
+                        Text="{Binding TacGiaSach}" Width="283" />
                 </StackPanel>
                 <StackPanel
                     Grid.Row="2"
@@ -133,7 +147,7 @@
                         materialDesign:HintAssist.Hint="Đơn Giá Bán"
                         FontSize="14"
                         IsEnabled="false"
-                        Text="{Binding DonGiaBan}" />
+                        Text="{Binding DonGiaBan, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
                 <StackPanel Grid.Row="0" Grid.Column="2">
                     <TextBox
@@ -141,6 +155,7 @@
                         Height="28"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
+                        Text="{Binding SoLuongMua,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                         materialDesign:HintAssist.Hint="Số Lượng Mua"
                         FontSize="14" />
                 </StackPanel>
@@ -151,12 +166,13 @@
                     Margin="0,20,0,19"
                     VerticalAlignment="Center">
                     <Button
+                        x:Name="btnThemCTHD"
                         Width="150"
                         materialDesign:RippleAssist.Feedback="#DD000000"
-                        Click="btnThem_Click"
+                       Command="{Binding ThemCTHDCommand}" CommandParameter="{Binding ElementName=dataCTHD}" 
                         RenderTransformOrigin="0.513,0.875"
-                        Style="{StaticResource MaterialDesignRaisedAccentButton}"
-                        ToolTip="Resource name: MaterialDesignRaisedAccentButton">
+                        Style="{StaticResource MaterialDesignRaisedAccentButton}" 
+                        ToolTip="Thêm vào Hóa Đơn">
                         Thêm vào hóa đơn
                     </Button>
                 </StackPanel>
@@ -168,16 +184,18 @@
                     Margin="0,10,0,0"
                     AutoGenerateColumns="False"
                     IsReadOnly="True"
-                    ItemsSource="{Binding}">
+                    ItemsSource="{Binding ListCTHD,Mode=TwoWay}"
+                   >
+
                     <DataGrid.Columns>
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-
                                     <Button
                                         Width="25"
                                         Height="25"
-                                        Click="btnXoa_Click"
+                                       Command="{Binding XoaCTHDCommand}"
+                                        CommandParameter="{Binding ElementName=dataCTHD}"
                                         Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                                         ToolTip="Xóa Phiếu">
                                         <materialDesign:PackIcon
@@ -193,6 +211,8 @@
 
                         <DataGridTextColumn Binding="{Binding DonGiaBan, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Đơn Giá Bán" />
                         <DataGridTextColumn Binding="{Binding SoLuong, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Số Lượng" />
+
+                        <DataGridTextColumn x:Name="txtThanhTien" Header="Thành Tiền"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <DockPanel
@@ -209,19 +229,20 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="120" />
-                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="35" />
+                            <ColumnDefinition Width="45"/>
 
                         </Grid.ColumnDefinitions>
                         <TextBlock
-                            Margin="8,0,0,0"
+                            Margin="8,8,0,8"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             FontSize="14"
                             Foreground="Black"
-                            Text="Tổng Hóa Đơn : " />
+                            Text="Tổng Hóa Đơn : " Width="102" />
                         <TextBlock
                             Grid.Row="1"
-                            Margin="8,0,0,0"
+                            Margin="8,7,0,6"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             FontSize="14"
@@ -229,7 +250,7 @@
                             Text="Thanh Toán : " />
                         <TextBlock
                             Grid.Row="2"
-                            Margin="8,0,0,0"
+                            Margin="8,8,0,7.62"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             FontSize="14"
@@ -237,22 +258,23 @@
                             Text="Hoàn Tiền : " />
 
                         <TextBlock
-                            x:Name="tblock_TienHoaDon"
+                            
+                            x:Name="txbTongHoaDon"
                             Grid.Column="1"
                             Margin="8,8,0,8"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             FontSize="14"
                             Foreground="#FF747474"
-                            Text="{Binding BookCart, Mode=OneWay}" />
+                            
+                            Text="{Binding TongHoaDon, Mode=OneWay}" />
                         <DockPanel
                             Grid.Row="1"
                             Grid.Column="1"
                             HorizontalAlignment="Left"
-                            LastChildFill="True">
-
+                            LastChildFill="True" Grid.ColumnSpan="2">
                             <TextBox
-                                x:Name="tb_TienKhachTra"
+                                x:Name="txbTienKhachTra"
                                 Width="36"
                                 MinWidth="64"
                                 MinHeight="0"
@@ -267,22 +289,24 @@
                                 FontFamily="Segoe UI"
                                 FontSize="14"
                                 Foreground="#FF007ACC"
+                                Text="{Binding ThanhToan,Mode=OneWayToSource}"
                                 SelectionBrush="#FF007ACC"
                                 TextAlignment="Right" />
                         </DockPanel>
                         <TextBlock
-                            x:Name="tblock_HoanTien"
+                            x:Name="txbHoanTien"
                             Grid.Row="2"
                             Grid.Column="1"
-                            Margin="8,8,0,8"
+                            Margin="8,8,0,7.62"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             FontSize="14"
+                            Text="{Binding HoanTien}"
                             Foreground="#FFCF1E1E" />
                         <StackPanel
                             Grid.Row="3"
                             Grid.Column="0"
-                            Grid.ColumnSpan="2">
+                            Grid.ColumnSpan="3" Margin="0,0.38,0,-0.38">
                             <Button
                                 Width="150"
                                 Margin="20"
