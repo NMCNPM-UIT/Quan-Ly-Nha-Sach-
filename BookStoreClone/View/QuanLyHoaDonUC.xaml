@@ -26,7 +26,6 @@
                 </i:Interaction.Triggers>
             </TextBox>
             <Button
-                        x:Name="btnT"
                         materialDesign:RippleAssist.Feedback="#DD000000"
                         RenderTransformOrigin="0.513,0.875"
                         
@@ -51,9 +50,12 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                                            Command="{Binding XoaHDCommand}"
-                                            CommandParameter="{Binding ElementName=dataHoaDon}"
                                             ToolTip="Xóa Hóa Đơn"  Height="25" Width="25"  >
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Click">
+                                                <i:InvokeCommandAction Command="{Binding XoaHDCommand}" CommandParameter="{Binding ElementName=dataHoaDon}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
                                         <materialDesign:PackIcon Kind="DeleteForever" Height="20" Width="20"  />
                                     </Button>
                                 </DataTemplate>

@@ -47,7 +47,7 @@ namespace BookStoreClone.ViewModel
           });
             XoaHDCommand = new RelayCommand<DataGrid>((p) => { return true; }, (p) =>
             {
-
+                MessageBox.Show("Fuck!");
             });
             SuaHDCommand = new RelayCommand<Card>((p) => { return true; }, (p) =>
             {
@@ -55,16 +55,20 @@ namespace BookStoreClone.ViewModel
             });
             TimKiemKHCommand = new RelayCommand<TextBox>((p) => { return true; }, (p) =>
             {
-                try {
-
-                    ListHD = (ObservableCollection<HoaDon>)ListHD.Where(x => x.KhachHang.TenKH.Contains(p.Text));
-                }
-               catch(Exception e)
+                try
                 {
+                    ListHD = (ObservableCollection<HoaDon>)ListHD.Where(x => x.KhachHang.TenKH.Contains(p.Text));
 
                 }
+                catch(Exception e)
+                {
+                   
+                }
+
+
+
             });
-        }
+            }
         private ObservableCollection<KhachHang> getKH()
         {
             return new ObservableCollection<KhachHang>(DataProvider.Ins.DB.KhachHangs);
