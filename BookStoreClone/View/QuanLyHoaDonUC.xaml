@@ -1,0 +1,182 @@
+﻿<UserControl x:Class="BookStoreClone.View.QuanLyHoaDonUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BookStoreClone.View"
+             mc:Ignorable="d"
+              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             DataContext="{StaticResource QuanLyHoaDonVM}"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="730" d:DesignWidth="1200"
+             >
+    <DockPanel  VerticalAlignment="Top" >
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="50" >
+            <TextBox x:Name="txbTimKiem" HorizontalAlignment="Center"  VerticalAlignment="Top" 
+                     materialDesign:HintAssist.Hint="Tìm kiếm"
+                     AcceptsReturn="True"
+                     IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextFieldTextBoxEnabledComboBox}"
+                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto" Margin="374,0,50,0" Width="460" Height="52">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding TimKiemKHCommand}" CommandParameter="{Binding ElementName=txbTimKiem}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <Button
+                        materialDesign:RippleAssist.Feedback="#DD000000"
+                        RenderTransformOrigin="0.513,0.875"
+                        
+                        Style="{StaticResource MaterialDesignRaisedAccentButton}" 
+                        ToolTip="Thêm Hóa Đơn"   Height="Auto" Content="Thêm hóa đơn" Width="154" Margin="0,0,0,10" />
+        </StackPanel>
+        <materialDesign:Card DockPanel.Dock="Top" Margin="94,35,95,0" Height="485">
+            <ScrollViewer>
+                <DataGrid x:Name="dataHoaDon" IsReadOnly="True" Width="1011" AutoGenerateColumns="False" Height="475" ItemsSource="{Binding ListHD,Mode=TwoWay}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding SelectHDCommand}" CommandParameter="{Binding ElementName=dataHoaDon}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding MaHD, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Mã Hóa Đơn"/>
+                        <DataGridTextColumn Binding="{Binding KhachHang.TenKH, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tên Khách Hàng"/>
+                        <DataGridTextColumn Binding="{Binding NgayBan, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Ngày Lập Hóa Đơn"/>
+                        <DataGridTextColumn Binding="{Binding TongTien, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Tổng Tiền"/>
+                        <DataGridTextColumn Binding="{Binding SoTienTra, NotifyOnTargetUpdated=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Số Tiền Thanh Toán"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                            ToolTip="Xóa Hóa Đơn"  Height="25" Width="25"  >
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Click">
+                                                <i:InvokeCommandAction Command="{Binding XoaHDCommand}" CommandParameter="{Binding ElementName=dataHoaDon}" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                        <materialDesign:PackIcon Kind="DeleteForever" Height="20" Width="20"  />
+                                    </Button>
+                                </DataTemplate>
+
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate> 
+                                <DataTemplate>
+                                    <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                            Command="{Binding SuaHDCommand}"
+                                            CommandParameter="{Binding ElementName=VungNhap}"
+                                            ToolTip="Sửa Hóa Đơn"  Height="25" Width="25"  >
+                                        <materialDesign:PackIcon Kind="Pencil" Height="20" Width="20"  />
+                                    </Button>
+                                </DataTemplate>
+
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </materialDesign:Card>
+        <materialDesign:Card Height="146" Margin="95,40,95,0" x:Name="VungNhap">
+            <Grid  Margin="20,0,20,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock Margin="8,8,0,8"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="14"
+                           Foreground="Black"
+                           Text="Tên Khách Hàng : " Width="105"/>
+                    <ComboBox
+                    x:Name="cbKH"
+                    Width="209"
+                    Margin="10,21"
+                    FontSize="14"
+                    materialDesign:HintAssist.Hint="Chọn Khách Hàng"
+                    DockPanel.Dock="Left"
+                    SelectedItem="{Binding SelectedHD.KhachHang}"
+                    DisplayMemberPath="TenKH"
+                    IsEnabled="False"
+                    ItemsSource="{Binding ListKH,Mode=OneWay}">
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock Margin="8,27,0,27"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="14"
+                           Foreground="Black"
+                           Text="Ngày Lập Hóa Đơn : " Width="124"/>
+                    <DatePicker x:Name="dpNgayLapHD"
+                    Width="180"
+                    Margin="10,8,10,20"
+                    IsEnabled="False"
+                    FontSize="14"
+                    Text="{Binding NgayLapHD,Mode=TwoWay}"
+                    materialDesign:HintAssist.Hint="Pick Date"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" RenderTransformOrigin="0.61,0.473" Height="42" />
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                    <TextBlock Margin="8,27,0,27"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="14"
+                           Foreground="Black"
+                           Text="Số Điện Thoại:" Width="96" />
+                    <TextBox
+                x:Name="txbSDT" Margin="10,24,0,21"
+                materialDesign:HintAssist.Hint="Số Điện Thoại"
+                IsEnabled="False"
+                Text="{Binding SelectedItem.SDT, ElementName=cbKH}" Height="26" RenderTransformOrigin="0.5,0.5"  Width="206" >
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                    <TextBlock Margin="8,27,0,27"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="14"
+                           Foreground="Black" 
+                           Text="Tổng Hóa Đơn:" Width="96" />
+                    <TextBox 
+                x:Name="txbTongHD" Margin="10,24,0,20" 
+                materialDesign:HintAssist.Hint="Tổng Hóa Đơn"
+                IsEnabled="False"
+                Text="{Binding TongHD,Mode=TwoWay}"
+                 Height="26" RenderTransformOrigin="0.5,0.5"  Width="206" >
+                    </TextBox>
+                </StackPanel>
+
+                <Grid Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" >
+                    <Button
+                        x:Name="btnLuu"
+                        materialDesign:RippleAssist.Feedback="#DD000000"
+                       Command="{Binding LuuCTHDCommand}" CommandParameter="{Binding ElementName=dataCTHD}" 
+                        RenderTransformOrigin="0.513,0.875"
+                        Style="{StaticResource MaterialDesignRaisedAccentButton}" 
+                        ToolTip="Lưu" Margin="84,10,59,84" Height="Auto">
+                        Lưu
+                    </Button>
+                    <Button
+                        x:Name="btnThemSach"
+                        materialDesign:RippleAssist.Feedback="#DD000000"
+                       Command="{Binding ThemCTHDCommand}" CommandParameter="{Binding ElementName=dataCTHD}" 
+                        RenderTransformOrigin="0.513,0.875"
+                        Style="{StaticResource MaterialDesignRaisedAccentButton}" 
+                        ToolTip="Thêm Hóa Đơn"  Height="Auto" Margin="84,86,59,10">
+                        Thêm  sách
+                    </Button>
+                </Grid>
+            </Grid>
+        </materialDesign:Card>
+    </DockPanel>
+</UserControl>

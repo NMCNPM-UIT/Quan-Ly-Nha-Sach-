@@ -32,5 +32,10 @@ namespace BookStoreClone
         {
 
         }
+
+        private void TreeViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show((sender as TreeViewItem).Header.ToString());
+        }
     }
 }
