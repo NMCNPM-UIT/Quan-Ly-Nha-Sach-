@@ -168,10 +168,6 @@ AppPackages/
 # but keep track of directories ending in .cache
 !*.[Cc]ache/
 
-# SQL Server files
-*.mdf
-*.ldf
-*.ndf
 # Others
 ClientBin/
 [Ss]tyle[Cc]op.*
@@ -195,7 +191,9 @@ Backup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
 
-
+# SQL Server files
+*.mdf
+*.ldf
 
 # Business Intelligence projects
 *.rdl.data
@@ -227,12 +225,8 @@ _Pvt_Extensions
 
 # Paket dependency manager
 .paket/paket.exe
-# SQL Server files
-*.mdf
-*.ldf
-*.ndf
+
 # FAKE - F# Make
 .fake/
 *.binlog
 /.dotnet
-BookStoreClone/App.config

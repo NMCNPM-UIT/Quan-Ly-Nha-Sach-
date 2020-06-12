@@ -12,12 +12,15 @@
     d:DesignWidth="1200"
     DataContext="{StaticResource TimKiemVM}"
     mc:Ignorable="d">
+
     <DockPanel>
+
         <materialDesign:Card
             x:Name="pnlThongTinSach"
             Width="426"
             DockPanel.Dock="Right"
-            Tag="{Binding IDSach, UpdateSourceTrigger=PropertyChanged}">
+            Tag="{Binding IDSach}"
+            Visibility="Collapsed">
             <StackPanel>
                 <Canvas Height="500" DockPanel.Dock="Top">
 
@@ -25,17 +28,14 @@
                         Canvas.Left="42"
                         Canvas.Top="10"
                         Width="350"
-                        Height="345"
-                        Source="{Binding AnhBia}" />
+                        Height="345" />
                     <TextBlock
                         Canvas.Left="42"
                         Canvas.Top="360"
-                        Width="350"
                         FontSize="25"
                         Foreground="Black"
                         RenderTransformOrigin="0.739,-0.722"
-                        Text="{Binding TenSach}"
-                        TextAlignment="Center" />
+                        Text="{Binding TenSach}" />
                     <TextBlock
                         Canvas.Left="309"
                         Canvas.Top="467"
@@ -54,8 +54,7 @@
                     <Button
                         Canvas.Left="10"
                         Canvas.Top="10"
-                        Command="{Binding AnSachCommand}"
-                        CommandParameter="{Binding ElementName=pnlThongTinSach}"
+                        Click="Button_Click"
                         RenderTransformOrigin="1.15,0.6"
                         Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
                         ToolBar.OverflowMode="AsNeeded"
@@ -65,11 +64,6 @@
                             Height="24"
                             Kind="Close"
                             RenderTransformOrigin="1.583,2.583" />
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding AnSachCommand}" CommandParameter="{Binding ElementName=pnlThongTinSach}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
                     </Button>
                 </Canvas>
                 <WrapPanel
@@ -127,45 +121,14 @@
             </StackPanel>
         </materialDesign:Card>
         <DockPanel>
-
-
-            <DockPanel DockPanel.Dock="Top" LastChildFill="True">
-
+            <!--  Tìm Kiếm  -->
+            <DockPanel
+                Height="44"
+                VerticalAlignment="Center"
+                DockPanel.Dock="Top">
                 <StackPanel
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    DockPanel.Dock="Right"
-                    Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="Hiển thị:     " />
-                    <ComboBox
-                        x:Name="cbSoTrangHienThi"
-                        Margin="0,0,30,0"
-                        HorizontalAlignment="Right"
-                        materialDesign:ColorZoneAssist.Mode="Standard"
-                        materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource MaterialDesignPaper}"
-                        BorderBrush="{DynamicResource MaterialDesignPaper}"
-                        BorderThickness="0"
-                        SelectedIndex="0">
-                        <ComboBoxItem>
-                            16
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            32
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            64
-                        </ComboBoxItem>
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction Command="{Binding ThayDoiSoLuongHienThiCommand}" CommandParameter="{Binding ElementName=cbSoTrangHienThi}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </ComboBox>
-                </StackPanel>
-                <StackPanel
-                    Height="44"
+                    Height="auto"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
                     materialDesign:RippleAssist.IsCentered="True"
                     Orientation="Horizontal">
 
@@ -196,12 +159,8 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <Button
-                                Command="{Binding TimKiemCommand}"
-                                CommandParameter="{Binding ElementName=pnlHienThiSach}"
-                                Style="{DynamicResource MaterialDesignToolButton}">
+                            <Button Style="{DynamicResource MaterialDesignToolButton}">
                                 <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
-
                             </Button>
                             <TextBox
                                 Grid.Column="1"
@@ -210,64 +169,63 @@
                                 VerticalAlignment="Center"
                                 materialDesign:HintAssist.Hint="Build a search bar"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                BorderThickness="0"
-                                Text="{Binding TextTimKiem, UpdateSourceTrigger=PropertyChanged}" />
+                                BorderThickness="0" />
 
                         </Grid>
                     </materialDesign:ColorZone>
 
                 </StackPanel>
+                <StackPanel
+                    Height="50"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="Azure"
+                    DockPanel.Dock="Top"
+                    Orientation="Horizontal">
+                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Margin="10,5,10,5">
+                            <materialDesign:PackIcon Kind="ChevronDoubleLeft" />
+                        </Button>
+                        <Button Margin="10,5,10,5">
+                            <materialDesign:PackIcon Kind="ChevronLeft" />
+                        </Button>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+
+                            </Grid.ColumnDefinitions>
+                            <TextBox
+                                x:Name="txtSoTrangHienTai"
+                                Grid.Column="0"
+                                Width="50"
+                                VerticalAlignment="Center"
+                                TextChanged="txtSoTrangtxtChanged" />
+                            <TextBlock
+                                x:Name="txbMaxTrang"
+                                Grid.Column="1"
+                                Width="50"
+                                VerticalAlignment="Center" />
+                        </Grid>
+                        <Button Margin="10,5,10,5">
+                            <materialDesign:PackIcon Kind="ChevronRight" />
+                        </Button>
+                        <Button Margin="10,5,10,5">
+                            <materialDesign:PackIcon Kind="ChevronDoubleRight" />
+                        </Button>
+                    </WrapPanel>
+                </StackPanel>
             </DockPanel>
+
 
             <materialDesign:Card Margin="0,0,5,0" DockPanel.Dock="Top">
                 <ScrollViewer>
-                    <DockPanel>
-                        <StackPanel
-                            Height="50"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Background="Azure"
-                            DockPanel.Dock="Bottom"
-                            Orientation="Horizontal">
-                            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Button Margin="10,5,10,5" Command="{Binding TrangDauCommand}">
-                                    <materialDesign:PackIcon Kind="ChevronDoubleLeft" />
-                                </Button>
-                                <Button Margin="10,5,10,5" Command="{Binding TrangTruocDoCommand}">
-                                    <materialDesign:PackIcon Kind="ChevronLeft" />
-                                </Button>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-
-                                    </Grid.ColumnDefinitions>
-
-                                    <TextBlock
-                                        Grid.Column="1"
-                                        
-                                        VerticalAlignment="Center"
-                                        Text="{Binding TrangThaiSoTrang}" />
-                                </Grid>
-                                <Button Margin="10,5,10,5" Command="{Binding TrangTiepTheoCommand}">
-                                    <materialDesign:PackIcon Kind="ChevronRight" />
-                                </Button>
-                                <Button Margin="10,5,10,5" Command="{Binding TrangCuoiCommand}">
-                                    <materialDesign:PackIcon Kind="ChevronDoubleRight" />
-                                </Button>
-                            </WrapPanel>
-                        </StackPanel>
-                        <WrapPanel x:Name="pnlHienThiSach" HorizontalAlignment="Center">
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="Loaded">
-                                    <i:InvokeCommandAction Command="{Binding LoadSach}" CommandParameter="{Binding ElementName=pnlHienThiSach}" />
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </WrapPanel>
-                    </DockPanel>
+                    <WrapPanel x:Name="pnlHienThiSach" HorizontalAlignment="Center" />
                 </ScrollViewer>
 
             </materialDesign:Card>
+
+
 
         </DockPanel>
 
