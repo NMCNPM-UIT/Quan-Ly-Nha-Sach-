@@ -14,8 +14,17 @@ namespace BookStoreClone.Model
     
     public partial class BaoCaoCongNo
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public BaoCaoCongNo()
+        {
+            this.CTBaoCaoCongNoes = new HashSet<CTBaoCaoCongNo>();
+        }
+    
         public int MaBaoCao { get; set; }
         public int Thang { get; set; }
         public int Nam { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CTBaoCaoCongNo> CTBaoCaoCongNoes { get; set; }
     }
 }

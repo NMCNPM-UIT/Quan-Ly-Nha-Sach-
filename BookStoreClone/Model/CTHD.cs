@@ -18,5 +18,8 @@ namespace BookStoreClone.Model
         public int MaSach { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public Nullable<int> DonGiaBan { get; set; }
+    
+        public virtual HoaDon HoaDon { get; set; }
+        public virtual Sach Sach { get; set; }
     }
 }

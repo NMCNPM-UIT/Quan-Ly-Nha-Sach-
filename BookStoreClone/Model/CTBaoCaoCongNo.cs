@@ -18,5 +18,8 @@ namespace BookStoreClone.Model
         public int MaKH { get; set; }
         public int SoTienNoDau { get; set; }
         public int SoTienNoCuoi { get; set; }
+    
+        public virtual BaoCaoCongNo BaoCaoCongNo { get; set; }
+        public virtual KhachHang KhachHang { get; set; }
     }
 }

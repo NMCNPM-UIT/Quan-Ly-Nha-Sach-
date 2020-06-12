@@ -14,11 +14,26 @@ namespace BookStoreClone.Model
     
     public partial class KhachHang
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public KhachHang()
+        {
+            this.CTBaoCaoCongNoes = new HashSet<CTBaoCaoCongNo>();
+            this.HoaDons = new HashSet<HoaDon>();
+            this.PhieuThuTiens = new HashSet<PhieuThuTien>();
+        }
+    
         public int MaKH { get; set; }
         public string TenKH { get; set; }
         public string SDT { get; set; }
         public string DiaChi { get; set; }
         public string Email { get; set; }
         public int SoTienNo { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CTBaoCaoCongNo> CTBaoCaoCongNoes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PhieuThuTien> PhieuThuTiens { get; set; }
     }
 }

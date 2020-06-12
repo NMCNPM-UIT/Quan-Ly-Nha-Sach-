@@ -14,11 +14,32 @@ namespace BookStoreClone.Model
     
     public partial class Sach
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Sach()
+        {
+            this.CTBaoCaoTons = new HashSet<CTBaoCaoTon>();
+            this.CTHDs = new HashSet<CTHD>();
+            this.CTPhieuNhaps = new HashSet<CTPhieuNhap>();
+            this.TacGias = new HashSet<TacGia>();
+            this.TheLoais = new HashSet<TheLoai>();
+        }
+    
         public int MaSach { get; set; }
         public Nullable<int> SoLuongTon { get; set; }
         public Nullable<int> DonGia { get; set; }
         public string TenSach { get; set; }
         public string MoTa { get; set; }
         public string AnhBia { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CTBaoCaoTon> CTBaoCaoTons { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CTHD> CTHDs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CTPhieuNhap> CTPhieuNhaps { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TacGia> TacGias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TheLoai> TheLoais { get; set; }
     }
 }
