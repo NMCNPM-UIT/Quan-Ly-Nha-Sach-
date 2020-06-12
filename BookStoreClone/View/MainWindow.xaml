@@ -195,7 +195,7 @@
             </i:Interaction.Triggers>
         </Grid>
 
-        <view:HoaDonUC Margin="5" VerticalAlignment="Center" />
+        <view:TimKiemSachUC Margin="5" VerticalAlignment="Center" />
         <!--<view:QuanLyThongTinSachUC Visibility="Collapsed"></view:QuanLyThongTinSachUC>-->
 
 
