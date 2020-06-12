@@ -19,8 +19,5 @@ namespace BookStoreClone.Model
         public Nullable<System.DateTime> NgayThuTien { get; set; }
         public Nullable<int> SoTienThu { get; set; }
         public Nullable<int> MaND { get; set; }
-    
-        public virtual KhachHang KhachHang { get; set; }
-        public virtual NguoiDung NguoiDung { get; set; }
     }
 }

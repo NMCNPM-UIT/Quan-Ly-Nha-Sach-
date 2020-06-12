@@ -14,14 +14,6 @@ namespace BookStoreClone.Model
     
     public partial class NguoiDung
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NguoiDung()
-        {
-            this.HoaDons = new HashSet<HoaDon>();
-            this.PhieuNhaps = new HashSet<PhieuNhap>();
-            this.PhieuThuTiens = new HashSet<PhieuThuTien>();
-        }
-    
         public int MaND { get; set; }
         public string TenND { get; set; }
         public Nullable<System.DateTime> NgaySinh { get; set; }
@@ -31,12 +23,5 @@ namespace BookStoreClone.Model
         public string TenDangNhap { get; set; }
         public string MatKhau { get; set; }
         public string ChucVu { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhieuNhap> PhieuNhaps { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhieuThuTien> PhieuThuTiens { get; set; }
     }
 }

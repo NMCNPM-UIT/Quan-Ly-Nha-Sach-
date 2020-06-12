@@ -14,22 +14,11 @@ namespace BookStoreClone.Model
     
     public partial class HoaDon
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public HoaDon()
-        {
-            this.CTHDs = new HashSet<CTHD>();
-        }
-    
         public int MaHD { get; set; }
         public Nullable<int> TongTien { get; set; }
         public Nullable<System.DateTime> NgayBan { get; set; }
         public Nullable<int> SoTienTra { get; set; }
         public int MaKH { get; set; }
         public int MaND { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTHD> CTHDs { get; set; }
-        public virtual KhachHang KhachHang { get; set; }
-        public virtual NguoiDung NguoiDung { get; set; }
     }
 }

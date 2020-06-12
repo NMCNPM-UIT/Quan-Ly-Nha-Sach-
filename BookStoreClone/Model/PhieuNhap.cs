@@ -14,18 +14,8 @@ namespace BookStoreClone.Model
     
     public partial class PhieuNhap
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PhieuNhap()
-        {
-            this.CTPhieuNhaps = new HashSet<CTPhieuNhap>();
-        }
-    
         public int MaPN { get; set; }
         public Nullable<System.DateTime> NgayNhap { get; set; }
         public int MaND { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTPhieuNhap> CTPhieuNhaps { get; set; }
-        public virtual NguoiDung NguoiDung { get; set; }
     }
 }

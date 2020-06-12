@@ -12,10 +12,9 @@ namespace BookStoreClone.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class BaoCaoTon
+    public partial class CTTheLoai
     {
-        public int MaBaoCao { get; set; }
-        public int Thang { get; set; }
-        public int Nam { get; set; }
+        public int MaTL { get; set; }
+        public int MaSach { get; set; }
     }
 }
