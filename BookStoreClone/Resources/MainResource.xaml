@@ -9,7 +9,10 @@
     <viewmodel:SachViewModel x:Key="SachVM" />
     <viewmodel:LoginViewModel x:Key="LoginVM" />
     <viewmodel:HoaDonViewModel x:Key="HoaDonVM" />
+
     <viewmodel:QuanLyHoaDonViewModel x:Key="QuanLyHoaDonVM" />
+
+
 
 
 

@@ -1,10 +1,6 @@
-﻿using BookStoreClone.Model;
-using MaterialDesignThemes.Wpf;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,13 +15,14 @@ using System.Windows.Shapes;
 
 namespace BookStoreClone.View
 {
-    public partial class TimKiemSachUC : UserControl
+    /// <summary>
+    /// Interaction logic for PhieuNhapUC.xaml
+    /// </summary>
+    public partial class PhieuNhapUC : UserControl
     {
-        public TimKiemSachUC()
+        public PhieuNhapUC()
         {
             InitializeComponent();
-           
         }
     }
-
 }

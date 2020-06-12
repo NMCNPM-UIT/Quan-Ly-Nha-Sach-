@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,31 +12,28 @@ using MaterialDesignThemes.Wpf;
 
 namespace BookStoreClone.ViewModel
 {
-    class SachViewModel
+    class SachViewModel:BaseViewModel
     {
         public ICommand HienThoThongTinSachCommand { get; set; }
         
         public SachViewModel()
         {
-            HienThoThongTinSachCommand = new RelayCommand<TextBlock>((p) => { return true; }, (p) => {
-                
-                DockPanel dockPanel = (((((((((p.Parent as Canvas).Parent as Button).Parent as Grid).Parent as SachUC).Parent as WrapPanel).Parent as ScrollViewer).Parent as Card).Parent as DockPanel).Parent as DockPanel);
+            HienThoThongTinSachCommand = new ViewModel.RelayCommand<TextBlock>((p) => { return true; }, (p) =>
+            {
+                FrameworkElement frameworkElement = p;
+                while (frameworkElement.Parent as TimKiemSachUC == null)
+                    frameworkElement = frameworkElement.Parent as FrameworkElement;
+                DockPanel dockPanel = frameworkElement as DockPanel;
                 for (int i = 0; i < dockPanel.Children.Count; i++)
                     if (dockPanel.Children[i] is Card)
-                        (dockPanel.Children[i] as Card).Visibility = Visibility.Visible;
+                    {
+                        TimKiemSachViewModel timKiemSachViewModel = (TimKiemSachViewModel)(dockPanel.Parent as TimKiemSachUC).DataContext;
+                        timKiemSachViewModel.IDSach = p.Text;
+                        dockPanel.Children[i].Visibility = Visibility.Visible;
+                    }
             }
-             );
+            );
         }
-        Control GetWindowParent(Control p)
-        {
-            Control parent = p;
-
-            while (parent.Parent != null)
-            {
-                parent = parent.Parent as Control;
-            }
-
-            return parent;
-        }
+       
     }
 }

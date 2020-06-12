@@ -28,10 +28,9 @@
                 <Expander.Header>
                     <materialDesign:PackIcon Kind="Menu" />
                 </Expander.Header>
-                <Grid Width="245" DockPanel.Dock="Left">
+                <Grid Width="255" DockPanel.Dock="Left">
                     <StackPanel
                         x:Name="tabTinhNang"
-                        Width="245"
                         VerticalAlignment="Top"
                         materialDesign:ThemeAssist.Theme="Light">
                         <StackPanel>
@@ -42,20 +41,18 @@
                             <StackPanel Height="70">
                                 <StackPanel Margin="15">
                                     <TextBox
-                                        x:Name="txtTimmKiem_Tab"
+                                        x:Name="txbSearch"
                                         Height="auto"
                                         VerticalAlignment="Center"
                                         materialDesign:HintAssist.Hint="Tìm kiếm"
                                         AcceptsReturn="True"
-                                        IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextFieldTextBoxEnabledComboBox}"
                                         Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
-                                        TextChanged="TxtTimmKiem_Tab_TextChanged"
+                                        Text="{Binding TextTimKiem, UpdateSourceTrigger=PropertyChanged}"
                                         TextWrapping="Wrap"
                                         VerticalScrollBarVisibility="Auto">
                                         <i:Interaction.Triggers>
                                             <i:EventTrigger EventName="TextChanged">
-                                                <i:InvokeCommandAction Command="{Binding TextChangedCommand}" />
-                                                <i:InvokeCommandAction CommandParameter="{Binding ElementName=treeViewTinhNang}" />
+                                                <i:InvokeCommandAction Command="{Binding TextChangedCommand}" CommandParameter="{Binding ElementName=treeViewTinhNang}" />
                                             </i:EventTrigger>
                                         </i:Interaction.Triggers>
 
@@ -64,56 +61,55 @@
                                 </StackPanel>
                             </StackPanel>
 
-                            <!--  ListBox hiển thị  -->
-                            <Grid x:Name="gridListBox" Background="{Binding Path=SelectedItem, ElementName=listBoxTab}">
-                                <TreeView x:Name="treeViewTinhNang">
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Margin="5,10,0,0" Kind="AccountEdit" />
-                                        <TreeViewItem Header="Tài Khoản">
-                                            <TreeViewItem Header="Thông Tin Tài Khoản" />
-                                            <TreeViewItem Header="Quản Lý Người Dùng" />
-                                        </TreeViewItem>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Margin="5,10,0,0" Kind="TextBox" />
-                                        <TreeViewItem Header="Quản Lý">
-                                            <TreeViewItem Header="Sách" />
-                                            <TreeViewItem Header="Dữ Liệu Sách" />
-                                            <TreeViewItem Header="Khách Hàng" />
-                                        </TreeViewItem>
-                                    </StackPanel>
 
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Margin="5,10,0,0" Kind="CashUsdOutline" />
-                                        <TreeViewItem Header="Kinh Doanh">
-                                            <TreeViewItem Header="Nhập Sách" />
-                                            <TreeViewItem Header="Lập Hóa Đơn Bán Sách" />
-                                            <TreeViewItem Header="Lập Phiếu Thu Tiền" />
-                                        </TreeViewItem>
-                                    </StackPanel>
+                            <TreeView x:Name="treeViewTinhNang">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Margin="0,6,0,0" Kind="AccountEdit" />
+                                    <TreeViewItem Header="Tài Khoản">
+                                        <TreeViewItem Header="Thông Tin Tài Khoản" />
+                                        <TreeViewItem Header="Quản Lý Người Dùng" />
+                                    </TreeViewItem>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Margin="0,6,0,0" Kind="TextBox" />
+                                    <TreeViewItem Header="Quản Lý">
+                                        <TreeViewItem Header="Sách" />
+                                        <TreeViewItem Header="Dữ Liệu Sách" />
+                                        <TreeViewItem Header="Khách Hàng" />
+                                    </TreeViewItem>
+                                </StackPanel>
 
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Margin="5,10,0,0" Kind="Magnify" />
-                                        <TreeViewItem Header="Tìm Kiếm">
-                                            <TreeViewItem Header="Tìm Kiếm Sách" />
-                                            <TreeViewItem Header="Tìm Kiếm Khách Hàng" />
-                                        </TreeViewItem>
-                                    </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Margin="0,6,0,0" Kind="CashUsdOutline" />
+                                    <TreeViewItem Header="Kinh Doanh">
+                                        <TreeViewItem Header="Nhập Sách" />
+                                        <TreeViewItem Header="Lập Hóa Đơn Bán Sách" />
+                                        <TreeViewItem Header="Lập Phiếu Thu Tiền" />
+                                    </TreeViewItem>
+                                </StackPanel>
 
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Margin="5,8,0,0" Kind="FileChart" />
-                                        <TreeViewItem Header="Báo Cáo">
-                                            <TreeViewItem Header="Báo Cáo Công Nợ" />
-                                            <TreeViewItem Header="Báo Cáo Tồn Kho" />
-                                        </TreeViewItem>
-                                    </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Margin="0,6,0,0" Kind="Magnify" />
+                                    <TreeViewItem Header="Tìm Kiếm">
+                                        <TreeViewItem Header="Tìm Kiếm Sách" />
+                                        <TreeViewItem Header="Tìm Kiếm Khách Hàng" />
+                                    </TreeViewItem>
+                                </StackPanel>
 
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Margin="5,10,0,0" Kind="Cog" />
-                                        <TreeViewItem Header="Tùy Chỉnh" />
-                                    </StackPanel>
-                                </TreeView>
-                            </Grid>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Margin="0,6,0,0" Kind="FileChart" />
+                                    <TreeViewItem Header="Báo Cáo">
+                                        <TreeViewItem Header="Báo Cáo Công Nợ" />
+                                        <TreeViewItem Header="Báo Cáo Tồn Kho" />
+                                    </TreeViewItem>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Margin="0,8,0,0" Kind="Cog" />
+                                    <TreeViewItem Header="Tùy Chỉnh" />
+                                </StackPanel>
+                            </TreeView>
+
                         </StackPanel>
 
                     </StackPanel>
@@ -194,9 +190,15 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Grid>
+        <Grid >
+            <view:TimKiemSachUC></view:TimKiemSachUC>
+        </Grid>
 
+<<<<<<< HEAD
         <view:QuanLyHoaDonUC Margin="5" VerticalAlignment="Center" />
         <!--<view:QuanLyThongTinSachUC Visibility="Collapsed"></view:QuanLyThongTinSachUC>-->
+=======
+>>>>>>> dd0118cc8f3c784586c809a7bfdcb576cf6f61c7
 
 
     </DockPanel>

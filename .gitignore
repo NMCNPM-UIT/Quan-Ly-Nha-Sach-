@@ -227,7 +227,10 @@ _Pvt_Extensions
 
 # Paket dependency manager
 .paket/paket.exe
-
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
 # FAKE - F# Make
 .fake/
 *.binlog
