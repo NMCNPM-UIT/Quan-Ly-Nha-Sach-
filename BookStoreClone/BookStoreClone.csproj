@@ -157,6 +157,7 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\PhieuThuTienViewModel.cs" />
+    <Compile Include="ViewModel\QuanLyDuLieuSachViewModel.cs" />
     <Compile Include="ViewModel\QuanLyHoaDonViewModel.cs" />
     <Compile Include="ViewModel\QuanLyKhachHangViewModel.cs" />
     <Compile Include="ViewModel\SachViewModel.cs" />

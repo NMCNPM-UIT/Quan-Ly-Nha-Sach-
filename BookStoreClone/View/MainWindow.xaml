@@ -70,7 +70,7 @@
                                     <StackPanel Orientation="Horizontal">
                                         <materialDesign:PackIcon Margin="5,10,0,0" Kind="AccountEdit" />
                                         <TreeViewItem Header="Tài Khoản">
-                                            <TreeViewItem Header="Thông Tin Tài Khoản" />
+                                            <TreeViewItem  Header="Thông Tin Tài Khoản" />
                                             <TreeViewItem Header="Quản Lý Người Dùng" />
                                         </TreeViewItem>
                                     </StackPanel>
@@ -195,7 +195,7 @@
             </i:Interaction.Triggers>
         </Grid>
 
-        <view:QuanLyHoaDonUC Margin="5" VerticalAlignment="Center" />
+        <view:QuanLyDuLieuSach Margin="5" VerticalAlignment="Center" />
         <!--<view:QuanLyThongTinSachUC Visibility="Collapsed"></view:QuanLyThongTinSachUC>-->
 
 
