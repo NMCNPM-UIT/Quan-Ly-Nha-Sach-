@@ -93,7 +93,9 @@ namespace BookStoreClone.ViewModel
                     
                  if((p as DataGrid).IsEnabled)
                  {
-                     Sach a = SelectedSach;
+                     Sach a = DataProvider.Ins.DB.Saches.Find(SelectedSach.MaSach);
+
+
                  }
                  else
                  {

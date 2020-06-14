@@ -195,7 +195,7 @@
             </i:Interaction.Triggers>
         </Grid>
 
-        <view:QuanLyDuLieuSach Margin="5" VerticalAlignment="Center" />
+        <view:PhieuThuTienUC Margin="5" VerticalAlignment="Center" />
         <!--<view:QuanLyThongTinSachUC Visibility="Collapsed"></view:QuanLyThongTinSachUC>-->
 
 

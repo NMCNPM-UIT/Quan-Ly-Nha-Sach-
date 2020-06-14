@@ -11,6 +11,6 @@
     <viewmodel:HoaDonViewModel x:Key="HoaDonVM" />
     <viewmodel:QuanLyHoaDonViewModel x:Key="QuanLyHoaDonVM" />
     <viewmodel:QuanLyDuLieuSachViewModel x:Key="QuanLyDuLieuSachVM" />
-
+    <viewmodel:PhieuThuTienViewModel x:Key="PhieuThuTienVM"/>
 
 </ResourceDictionary>
