@@ -137,15 +137,6 @@
                             Text="{Binding SelectedItem.SoTienNo,ElementName=cbKH}"
                             >
 
-                            </TextBlock>
-                            <TextBlock
-                            Height="28"
-                            Margin="10,36,0,36"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            FontSize="14"
-                            Foreground="Black"
-                            Text="đ" Width="18" />
 
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">

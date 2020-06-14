@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace BookStoreClone.View
 {
     /// <summary>
-    /// Interaction logic for NhapSachUC.xaml
+    /// Interaction logic for PhieuNhapUC.xaml
     /// </summary>
-    public partial class NhapSachUC : UserControl
+    public partial class PhieuNhapUC : UserControl
     {
-        public NhapSachUC()
+        public PhieuNhapUC()
         {
             InitializeComponent();
         }
