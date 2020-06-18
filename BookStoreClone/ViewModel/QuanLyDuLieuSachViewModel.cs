@@ -19,6 +19,7 @@ namespace BookStoreClone.ViewModel
         private Sach _selectedSach;
         private string _theLoaiSach;
         private string _tacGiaSach;
+
         private BitmapImage _img;
         public ICommand SelectedChangeCommand { get; set; }
         public ICommand LuuSachCommand { get; set; }

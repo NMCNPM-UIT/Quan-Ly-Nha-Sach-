@@ -24,6 +24,8 @@ namespace BookStoreClone.ViewModel
         private bool _setbtnLuu;
         private bool _setbtnXoa;
         private bool _setbtnHuy;
+        private string _textTimKiem;
+        private ComboBoxItem _timKiemTheo;
         public ObservableCollection<PhieuThuTien> ListPT { get => _listPT; set { _listPT = value; OnPropertyChanged(); } }
         public ObservableCollection<KhachHang> ListKH { get => _listKH; set { _listKH = value; OnPropertyChanged(); } }
         public ObservableCollection<NguoiDung> ListNV { get => _listNV; set { _listNV = value; OnPropertyChanged(); } }
@@ -42,6 +44,29 @@ namespace BookStoreClone.ViewModel
         public bool SetbtnXoa { get => _setbtnXoa; set { _setbtnXoa = value; OnPropertyChanged(); } }
 
         public bool SetbtnHuy { get => _setbtnHuy; set {_setbtnHuy = value; OnPropertyChanged(); } }
+
+        public string TextTimKiem
+        {
+            get => _textTimKiem; set
+            {
+                if (!String.IsNullOrEmpty(TimKiemTheo.Content.ToString()))
+                {
+                    if (TimKiemTheo.Content.ToString() == "Tên Khách Hàng")
+                    {
+                        _textTimKiem = value; OnPropertyChanged();
+                        ListPT = new ObservableCollection<PhieuThuTien>(DataProvider.Ins.DB.PhieuThuTiens.Where(x => x.KhachHang.TenKH.ToLower().Contains(TextTimKiem.ToLower())));
+                    }
+                    else
+                        ListPT = new ObservableCollection<PhieuThuTien>(DataProvider.Ins.DB.PhieuThuTiens.Where(x => x.KhachHang.SDT.Contains(TextTimKiem)));
+                }
+                else
+                    ListPT = getPT();
+            }
+        }
+
+        public ComboBoxItem TimKiemTheo { get => _timKiemTheo; set { _timKiemTheo = value; OnPropertyChanged("TimKiemTheo"); } }
+
+    
 
         public PhieuThuTienViewModel()
         {
@@ -80,6 +105,7 @@ namespace BookStoreClone.ViewModel
                                  DataProvider.Ins.DB.PhieuThuTiens.Add(SelectedPT);
                                  DataProvider.Ins.DB.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[PhieuThuTien] OFF");
                                  DataProvider.Ins.DB.SaveChanges();
+                                 DataProvider.Ins.DB.SaveChangesAsync();
                                  ListPT = getPT();
                              }
                               p.IsEnabled = false;
