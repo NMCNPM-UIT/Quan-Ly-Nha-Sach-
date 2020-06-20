@@ -24,5 +24,7 @@ namespace BookStoreClone.View
         {
             InitializeComponent();
         }
+
+        
     }
 }

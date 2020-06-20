@@ -197,7 +197,7 @@ namespace BookStoreClone.ViewModel
             SetbtnXoa = false;
             SetbtnHuy = true;
             SetbtnSua = false;
-        }
+        } 
         void setEnable()
         {
             SetDataKH = true;

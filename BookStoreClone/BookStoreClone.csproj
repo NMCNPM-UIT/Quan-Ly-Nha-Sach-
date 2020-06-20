@@ -151,6 +151,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ViewModel\BaoCaoCongNoViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\HoaDonViewModel.cs" />
@@ -159,7 +160,9 @@
     <Compile Include="ViewModel\PhieuThuTienViewModel.cs" />
     <Compile Include="ViewModel\QuanLyDuLieuSachViewModel.cs" />
     <Compile Include="ViewModel\QuanLyHoaDonViewModel.cs" />
-    <Compile Include="ViewModel\QuanLyKhachHangViewModel.cs" />
+    <Compile Include="ViewModel\QuanLyKhachHangViewModel.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="ViewModel\SachViewModel.cs" />
     <Compile Include="ViewModel\TimKiemSachViewModel.cs" />
     <Compile Include="View\BaoCaoCongNoUC.xaml.cs">
